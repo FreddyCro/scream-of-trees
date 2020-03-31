@@ -26,5 +26,6 @@ export default {
 .fb-comment-block {
   position: relative;
   margin: 104px auto 72px auto;
+  border-top-color: #fffffff;
 }
 </style>
