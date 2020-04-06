@@ -7,18 +7,24 @@
       'slide-card--last': isLast,
     }"
   >
-    <!-- TODO: responsive gradient -->
-    <div v-if="type === 'responsive'" class="slide-card__gradient slide-card__gradient--top" />
     <div
       :class="{
         'slide-card__content': true,
         'slide-card__content--small': type === 'small',
-        'article': type === 'responsive',
       }"
     >
-      <slot />
+      <div
+        v-if="type === 'responsive'"
+        class="slide-card__gradient slide-card__gradient--top"
+      />
+      <div class="article">
+        <slot />
+      </div>
+      <div
+        v-if="type === 'responsive' && !isLast"
+        class="slide-card__gradient slide-card__gradient--bottom"
+      />
     </div>
-    <!-- <div v-if="type === 'responsive'" class="slide-card__gradient slide-card__gradient--bottom" /> -->
   </div>
 </template>
 
@@ -83,52 +89,61 @@ export default {
 .slide-card {
   position: relative;
   width: 100%;
-  margin: 25vh 0;
-  background-color: #000000;
+  padding: 100vh 0;
+  // border: solid 5px red;
   &.slide-card--last {
-    margin-bottom: 0 !important;
+    padding-top: 200vh;
+    padding-bottom: 0;
   }
   &.slide-card--small {
     height: 100vh;
-    margin: 0;
+    padding: 0;
     background-color: transparent;
   }
 }
 .slide-card__content {
+  position: relative;
   width: 100%;
   color: #f5f5f5;
   padding-top: 120px;
   padding-bottom: 120px;
+  background-color: #000000;
   &.slide-card__content--small {
     position: absolute;
     top: 100%;
     left: 50%;
     width: 275px;
-    padding: 0 0;
+    padding: 16px 32px;
     background-color: #000000dd;
     transform: translate(-50%, -100%);
     @include pc {
       width: 320px;
     }
   }
-  &.article {
-    background-color: #000000;
+  .article {
+    padding: 0;
+    background-color: transparent;
+    p {
+      &:last-child {
+        margin: 0;
+      }
+    }
   }
-}
-.slide-card__gradient {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 25vh;
-  &.slide-card__gradient--top {
-    top: 0;
-    transform: translateY(-95%);
-    background-image: linear-gradient(to top, #000000ff, #00000000);
-  }
-  &.slide-card__gradient--bottom {
-    bottom: 0;
-    transform: translateY(95%);
-    background-image: linear-gradient(to bottom, #000000ff, #00000000);
+  .slide-card__gradient {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    &.slide-card__gradient--top {
+      top: 0;
+      transform: translateY(-95%);
+      background-image: linear-gradient(to top, #000000ff, #00000000);
+    }
+    &.slide-card__gradient--bottom {
+      bottom: 0;
+      transform: translateY(95%);
+      background-image: linear-gradient(to bottom, #000000ff, #00000000);
+    }
   }
 }
 </style>

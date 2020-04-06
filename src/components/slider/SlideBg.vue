@@ -8,11 +8,11 @@
         'slide-bg__item-container--active': item.trigger === currentSlide
       }"
     >
-      <img
+      <SlideBgImage 
         v-if="item.type === 'i' && item.imagePath"
-        :src="handleMediaSrc(item.imagePath, 'img')"
-        :alt="title"
-      >
+        :imageSrc="handleMediaSrc(item.imagePath, 'img')"
+        :trigger="item.trigger"
+      />
     </div>
     <div v-for="(item, index) in sliderVidScript"
       :key="index + 'vid'"
@@ -21,24 +21,21 @@
         'slide-bg__item-container--active': item.trigger === currentSlide
       }"
     >
-      <video
+      <SlideBgVideo
         v-if="item.type === 'v' && item.videoPath"
-        :id="'video-' + item.trigger"
-        :autoplay="+index === 0"
-        loop
-        muted
-        webkit-playsinline
-        :poster="handleMediaSrc(item.videoPath, 'poster')"
-      >
-        <source :src="handleMediaSrc(item.videoPath, 'vid')" type="video/mp4">
-        <p>Your browser doesn't support HTML5 video.</p>
-      </video>
+        :vidIndex="index"
+        :trigger="item.trigger"
+        :posterSrc="handleMediaSrc(item.videoPath, 'poster')"
+        :videoSrc="handleMediaSrc(item.videoPath, 'vid')"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import { autoResize_3, selectSrcMethod_3 } from "@/mixins/masterBuilder.js";
+import SlideBgImage from '@/components/slider/SlideBgImage.vue';
+import SlideBgVideo from '@/components/slider/SlideBgVideo.vue';
 
 const typeDictionary = {
   img: '.jpg',
@@ -49,10 +46,9 @@ const typeDictionary = {
 export default {
   name: "SlideBg",
   mixins: [autoResize_3, selectSrcMethod_3],
-  data() {
-    return {
-      title: document.querySelector('title').innerHTML,
-    }
+  components: {
+    SlideBgImage,
+    SlideBgVideo,
   },
   computed: {
     currentSlide() {
@@ -81,7 +77,7 @@ export default {
         pad: require(`~/img/${ROOT}` + (this.hasTabletSrc ? `pad${FILE}` : `mob${FILE}`)),
         pc: require(`~/img/${ROOT}pc${FILE}`)
       };
-
+      
       return this.selectSrc_3(SRC.mob, SRC.pad, SRC.pc);
     },
   }
@@ -102,28 +98,13 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   &.slide-bg__item-container--active {
     opacity: 1;
-  }
-  img, video {
-    width: auto;
-    height: 100%;
-    @media screen and (orientation:landscape) {
-      width: 100%;
-      height: auto;
-    }
-    @include pc {
-      @media screen and (orientation:landscape) {
-        width: auto;
-        height: 100%;
-      }
-    }
-    
   }
 }
 </style>

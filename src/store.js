@@ -7,14 +7,14 @@
     state: {
       currentSlide: 1,
       length: 6,
-      /**
-       * type: 
-       *  v: video
-       *  i: image
-       *  n: null
-       */
       folder: 'scream-of-trees',
-      script: [{
+      script: [
+        /**
+         * type: 
+         *  v: video
+         *  i: image
+         */
+        {
           type: 'v',
           trigger: 1,
           videoPath: '/slide_1/',
