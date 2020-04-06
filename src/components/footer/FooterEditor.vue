@@ -22,7 +22,9 @@ export default {
     width: 720px;
     padding: 72px 0 16px 0;
   }
-
+  &.article {
+    background-color: transparent;
+  }
   div {
     position: relative;
     width: 100%;
@@ -55,11 +57,11 @@ export default {
       }
     }
 
-    br {
-      @include pc {
-        display: none;
-      }
-    }
+    // br {
+    //   @include pc {
+    //     display: none;
+    //   }
+    // }
   }
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
   <div class="related-articles">
+    <!-- TODO: related articles -->
     <h1>related articles</h1>
   </div>
 </template>

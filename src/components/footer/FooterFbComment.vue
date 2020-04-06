@@ -25,7 +25,7 @@ export default {
 <style lang="scss" scoped>
 .fb-comment-block {
   position: relative;
-  margin: 104px auto 72px auto;
+  margin: 0 auto 72px auto;
   border-top-color: #fffffff;
 }
 </style>

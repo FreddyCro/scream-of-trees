@@ -22,11 +22,17 @@ export default {
     },
   },
   methods: {
-    handleGalleryScale(ratio) {
-      console.log('scale:' + ratio);
-      
+    handleGalleryScale: function(ratio) {
+      // console.log('scale:' + ratio);
+      function get() {
+        return 'get'
+      }
+      return { get }
     }
   },
+  mounted() {
+    // console.log(this.handleGalleryScale().get());
+  }
 }
 </script>
 

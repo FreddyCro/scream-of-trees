@@ -6,10 +6,10 @@ const pages = require("./pages_config/pages.js");
 
 module.exports = {
   productionSourceMap: false,
+  pages,
   chainWebpack: config => {
     config.module.rules.delete('eslint');
     config.resolve.alias
       .set('~', resolve('src/assets'))
-  },
-  pages
+  }
 }
