@@ -96,7 +96,7 @@ export default {
     padding-bottom: 0;
   }
   &.slide-card--small {
-    height: 100vh;
+    height: 125vh;
     padding: 0;
     background-color: transparent;
   }
@@ -115,14 +115,18 @@ export default {
     width: 275px;
     padding: 16px 32px;
     background-color: #000000dd;
-    transform: translate(-50%, -100%);
+    transform: translate(-50%, -200%);
+    // transform: translate(-50%, calc(-25vh - 200%));
     @include pc {
       width: 320px;
     }
   }
   .article {
-    padding: 0;
+    padding: 0 16px;
     background-color: transparent;
+    @include pc {
+      padding: 0;
+    }
     p {
       &:last-child {
         margin: 0;

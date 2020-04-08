@@ -7,9 +7,9 @@
     <div
       :class="{
         'image-gallery': true,
-        'image-gallery--zoom-layer-1': currentSlide >= galleryScript[2],
-        'image-gallery--zoom-layer-2': currentSlide === galleryScript[1],
-        'image-gallery--zoom-layer-3': currentSlide <= galleryScript[0]
+        'image-gallery--zoom-layer-1': currentSlide >= $store.state.galleryScript[2],
+        'image-gallery--zoom-layer-2': currentSlide === $store.state.galleryScript[1],
+        'image-gallery--zoom-layer-3': currentSlide <= $store.state.galleryScript[0]
       }"
     >
       <div
@@ -31,17 +31,12 @@ const row = { mob: 5, pad: 7, pc: 11 };
 export default {
   name: 'ImageGallery',
   mixins: [autoResize_3],
-  data() {
-    return {
-      galleryScript: [3, 4, 5],
-    }
-  },
   computed: {
     currentSlide() {
       return this.$store.state.currentSlide || 1;
     },
     isSlideAtGallery() {
-      return this.galleryScript.includes(this.currentSlide);
+      return this.$store.state.galleryScript.includes(this.currentSlide);
     },
     imageAmount() {
       const ratio = window.innerHeight / window.innerWidth;
@@ -84,6 +79,7 @@ export default {
   }
 }
 .image-gallery {
+  will-change: transform;
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -126,7 +122,7 @@ export default {
   float: left;
   width: 20%;
   padding-top: 20%;
-  border: 1.5px solid #000000;
+  border: 1px solid #000000;
   background-size: cover;
   @include pad {
     width: 14.28%;

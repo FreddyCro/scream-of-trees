@@ -42,6 +42,25 @@
           videoVoice: false,
         },
       ],
+      galleryScript: [3, 4, 5],
+      relatedArticles: [
+        {
+          title: '來不及長大的樹',
+          imgSrc: ''
+        },
+        {
+          title: '台灣還要種多少樹才夠？',
+          imgSrc: ''
+        },
+        {
+          title: '讓我們的樹健康長大',
+          imgSrc: ''
+        },
+        {
+          title: '願景工程「為未來種一顆樹」系列專題',
+          imgSrc: ''
+        }
+      ]
     },
     mutations: {
       updateCurrentSlide(state, payload) {

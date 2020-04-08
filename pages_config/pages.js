@@ -8,7 +8,7 @@ const howManyTrees_path = 'how-many-trees/';
 const growUpHealthily_path = 'grow-up-healthily/';
 
 /* 作者 */
-const author = '鄭朝陽、郭琇真、洪敬浤、王昭月、翁禎霞、蔡容喬、余采瀅、陳雅玲、謝汶均、許瑋琳、楊若榆、聯合報新媒體中心、視覺設計中心、聯合報新聞部、聯合報系願景工作室';
+const author = '鄭朝陽、郭琇真、洪敬浤、王昭月、翁禎霞、蔡容喬、余采瀅、陳雅玲、謝汶均、許瑋琳、楊若榆、聯合報新媒體中心、視覺設計中心、聯合報新聞部、數據中心、聯合報系願景工作室';
 
 module.exports = {
   index: {

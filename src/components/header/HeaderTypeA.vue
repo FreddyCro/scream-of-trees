@@ -21,24 +21,24 @@
             aria-label="聯logo"
             name="聯logo"
           >
-            <UdnLogo />
+            <UdnLogo theme="dark" />
           </a>
         </div>
       </nav>
       <nav class="header-bar__nav">
         <div class="header-bar-share__container">
           <div class="header-bar-share__share-icon">
-            <ShareFb />
+            <ShareFb theme="dark" />
           </div>
           <div class="header-bar-share__share-icon">
-            <ShareLine />
+            <ShareLine theme="dark" />
           </div>
           <div class="header-bar-share__share-icon">
-            <ShareTwitter />
+            <ShareTwitter theme="dark" />
           </div>
         </div>
         <div class="header-bar__hamburder-container" @click="handleHamburgerClick">
-          <HeaderHamburger :menuActiveFlag="menuActiveFlag" />
+          <HeaderHamburger theme="dark" :menuActiveFlag="menuActiveFlag" />
         </div>
       </nav>
     </div>

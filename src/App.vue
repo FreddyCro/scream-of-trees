@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <HeaderTypeA />
+    <HeaderTypeA type="light">
+      <a href="https://udn.com" target="_blank">外連1</a>
+      <a href="https://udn.com" target="_blank">外連2</a>
+      <a class="active">自己這頁</a>
+    </HeaderTypeA>
     <SlideBg />
     <ImageGallery />
     <SlideCard
@@ -74,7 +78,7 @@
         </div>
         <div>
           <p>監製</p>
-          <p>聯合報新聞部<br>聯合報系願景工作室</p>
+          <p>聯合報新聞部<br>聯合報系願景工作室<br>數據中心</p>
         </div>
         <div>
           <p></p>
@@ -100,8 +104,7 @@ import FooterQuestionnaire from '@/components/footer/FooterQuestionnaire.vue';
 import FooterShare from '@/components/footer/FooterShare.vue';
 import HeaderTypeA from '@/components/header/HeaderTypeA.vue';
 import PageFooter from '@/components/footer/PageFooter.vue';
-import PageCover from '@/components/layout/PageCover.vue';
-import RelatedArticles from '@/components/RelatedArticles.vue';
+import RelatedArticles from '@/components/related/RelatedArticles.vue';
 import SlideBg from '@/components/slider/SlideBg.vue';
 import SlideCard from '@/components/slider/SlideCard.vue';
 
@@ -116,7 +119,6 @@ export default {
     FooterShare,
     HeaderTypeA,
     PageFooter,
-    PageCover,
     RelatedArticles,
     SlideBg,
     SlideCard,
