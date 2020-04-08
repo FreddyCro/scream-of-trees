@@ -6,49 +6,200 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    folder: 'how-many-trees',
+    isMainPage: false,
     currentSlide: 1,
-    length: 6,
-    /**
-     * type: 
-     *  v: video
-     *  i: image
-     *  n: null
-     */
+    slideAmount: 11,
     script: [
       {
-        type: 'v',
+        type: 'i',
         trigger: 1,
-        videoSrc: '',
-        posterSrc: '',
-        imageSrc: '',
+        videoPath: null,
+        posterPath: null,
+        imagePath: '/slide_1/',
+        hasTablet: false,
+        videoVoice: false,
+      },
+      {
+        type: 'i',
+        trigger: 2,
+        videoPath: null,
+        posterPath: null,
+        imagePath: '/slide_2/',
+        hasTablet: false,
         videoVoice: false,
       },
       {
         type: 'v',
-        trigger: 2,
-        videoSrc: '',
-        posterSrc: '',
-        imageSrc: '',
+        trigger: 3,
+        videoPath: '/slide_3/',
+        posterPath: '/slide_3/',
+        imagePath: null,
+        hasTablet: false,
+        videoVoice: false,
+      },
+      {
+        type: 'v',
+        trigger: 4,
+        videoPath: '/slide_4/',
+        posterPath: '/slide_4/',
+        imagePath: null,
+        hasTablet: false,
+        videoVoice: false,
+      },
+      {
+        type: 'i',
+        trigger: 5,
+        videoPath: null,
+        posterPath: null,
+        imagePath: '/slide_5/',
+        hasTablet: false,
         videoVoice: false,
       },
       {
         type: 'v',
         trigger: 6,
-        videoSrc: '',
-        posterSrc: '',
-        imageSrc: '',
+        videoPath: '/slide_6/',
+        posterPath: '/slide_6/',
+        imagePath: null,
+        hasTablet: false,
         videoVoice: false,
       },
+      {
+        type: 'i',
+        trigger: 7,
+        videoPath: null,
+        posterPath: null,
+        imagePath: '/slide_7/',
+        hasTablet: false,
+        videoVoice: false,
+      },
+      {
+        type: 'i',
+        trigger: 8,
+        videoPath: null,
+        posterPath: null,
+        imagePath: '/slide_8/',
+        hasTablet: false,
+        videoVoice: false,
+      },
+      {
+        type: 'i',
+        trigger: 9,
+        videoPath: null,
+        posterPath: null,
+        imagePath: '/slide_9/',
+        hasTablet: false,
+        videoVoice: false,
+      },
+      {
+        type: 'v',
+        trigger: 10,
+        videoPath: '/slide_10/',
+        posterPath: '/slide_10/',
+        imagePath: null,
+        hasTablet: false,
+        videoVoice: false,
+      },
+      {
+        type: 'i',
+        trigger: 11,
+        videoPath: null,
+        posterPath: null,
+        imagePath: '/slide_11/',
+        hasTablet: false,
+        videoVoice: false,
+      }
     ],
+    relatedArticles: [
+      {
+        title: '樹的無聲吶喊',
+        imgSrc: 'relate_5',
+        url: '',
+        menu: {
+          active: true,
+          self: false
+        },
+        outlink: false,
+        active: true,
+      },
+      {
+        title: '來不及長大的樹',
+        imgSrc: 'relate_1',
+        url: 'no-chance-to-grow',
+        menu: {
+          active: true,
+          self: false
+        },
+        outlink: false,
+        active: true,
+      },
+      {
+        title: '台灣還要種多少樹才夠',
+        imgSrc: 'relate_2',
+        url: 'how-many-trees',
+        menu: {
+          active: true,
+          self: true
+        },
+        outlink: false,
+        active: false,
+      },
+      {
+        title: '讓我們的樹健康長大',
+        imgSrc: 'relate_3',
+        url: 'grow-up-healthily',
+        menu: {
+          active: true,
+          self: false
+        },
+        outlink: false,
+        active: true,
+      },
+      {
+        title: '願景工程系列專題',
+        imgSrc: 'relate_4',
+        url: 'https://vision.udn.com/',
+        menu: {
+          active: true,
+          self: false
+        },
+        outlink: true,
+        active: true,
+      },
+      {
+        title: 'AR',
+        imgSrc: '',
+        url: '',
+        menu: {
+          active: false,
+          self: false
+        },
+        outlink: false,
+        active: false,
+      }
+    ]
   },
   mutations: {
     updateCurrentSlide(state, payload) {
       state.currentSlide = payload;
     },
+    updateCurrentSlidePlayStatus(state) {
+      state.script.forEach(e => {
+        const video = document.getElementById(`video-${e.trigger}`);
+        if (e.type === 'v' && video) {
+          if (e.trigger === state.currentSlide) video.play();
+          else video.pause();
+        }
+      });
+    },
   },
   actions: {
     updateCurrentSlide(context, payload) {
       context.commit('updateCurrentSlide', payload);
+    },
+    updateCurrentSlidePlayStatus(context) {
+      context.commit('updateCurrentSlidePlayStatus');
     },
   },
 });

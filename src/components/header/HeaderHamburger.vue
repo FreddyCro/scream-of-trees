@@ -65,7 +65,7 @@ export default {
     background-color: #121212;
     transition: .333s ease-in-out;
     &.header-hamburger__line--white {
-      background-color: #ffffff;
+      background-color: #fafafa;
     }
   }
 

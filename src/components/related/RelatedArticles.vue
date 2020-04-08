@@ -71,7 +71,7 @@ export default {
 @import "~/style/_mixins.scss";
 .related-articles {
   position: relative;
-  margin: 180px 0;
+  margin: 120px 0;
   .related-articles__main-title {
     width: 100%;
     display: flex;
@@ -94,12 +94,12 @@ export default {
   }
 }
 .swiper-slide {
-  width: 275px;
+  width: 255px;
   @include smob {
     width: 240px;
   }
   @include pad {
-    width: 420px;
+    width: 405px;
   }
   @include pc {
     width: 200px;

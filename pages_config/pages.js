@@ -1,14 +1,18 @@
 const monitorCode = require("./monitor.js");
+const authorContent = require("./seo_content/author.js");
+const screamOfTreesContent = require("./seo_content/scream-of-trees.js");
+const noChanceContent = require("./seo_content/no-chance-to-grow.js");
+const howManyTreesContent = require("./seo_content/how-many-trees.js");
+const growUpHealthily = require("./seo_content/grow-up-healthily.js");
 
 /* 正式路徑 */
-// const pathRoot = process.env.NODE_ENV === 'production' ? 'https://udn.com/newmedia/2020/scream-of-trees/' : './';
 const pathRoot = process.env.NODE_ENV === 'production' ? 'https://nmdap.udn.com.tw/test/scream-of-trees/' : './';
 const noChanceToGrow_path = 'no-chance-to-grow/';
 const howManyTrees_path = 'how-many-trees/';
 const growUpHealthily_path = 'grow-up-healthily/';
 
 /* 作者 */
-const author = '鄭朝陽、郭琇真、洪敬浤、王昭月、翁禎霞、蔡容喬、余采瀅、陳雅玲、謝汶均、許瑋琳、楊若榆、聯合報新媒體中心、視覺設計中心、聯合報新聞部、數據中心、聯合報系願景工作室';
+const author = '鄭朝陽、郭琇真、洪敬浤、王昭月、翁禎霞、蔡容喬、余采瀅、陳雅玲、謝汶均、許瑋琳、楊若榆、聯合報新媒體中心、視覺設計中心、數據中心、聯合報新聞部、聯合報系願景工作室';
 
 module.exports = {
   index: {
@@ -22,8 +26,8 @@ module.exports = {
     datePublished: '2020-04-22 T12:00:00+08:00',
     dateModified: '2020-04-23 T12:00:00+08:00',
     MONITOR: monitorCode,
+    CONTENT: screamOfTreesContent + authorContent,
     pageUrl: pathRoot,
-    publicPath: pathRoot
   },
   noChanceToGrow: {
     entry: 'src/subpages/no-chance-to-grow/main.js',
@@ -36,8 +40,8 @@ module.exports = {
     datePublished: '2020-04-22 T12:00:00+08:00',
     dateModified: '2020-04-23 T12:00:00+08:00',
     MONITOR: monitorCode,
+    CONTENT: noChanceContent + authorContent,
     pageUrl: pathRoot + noChanceToGrow_path,
-    publicPath: pathRoot
   },
   howManyTrees: {
     entry: 'src/subpages/how-many-trees/main.js',
@@ -50,8 +54,8 @@ module.exports = {
     datePublished: '2020-04-22 T12:00:00+08:00',
     dateModified: '2020-04-23 T12:00:00+08:00',
     MONITOR: monitorCode,
+    CONTENT: howManyTreesContent + authorContent,
     pageUrl: pathRoot + howManyTrees_path,
-    publicPath: pathRoot
   },
   growUpHealthily: {
     entry: 'src/subpages/grow-up-healthily/main.js',
@@ -64,7 +68,7 @@ module.exports = {
     datePublished: '2020-04-22 T12:00:00+08:00',
     dateModified: '2020-04-23 T12:00:00+08:00',
     MONITOR: monitorCode,
+    CONTENT: growUpHealthily + authorContent,
     pageUrl: pathRoot + growUpHealthily_path,
-    publicPath: pathRoot,
   },
 }

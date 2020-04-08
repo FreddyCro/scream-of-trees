@@ -1,9 +1,18 @@
 <template>
   <div id="app">
     <HeaderTypeA type="light">
-      <a href="https://udn.com" target="_blank">外連1</a>
-      <a href="https://udn.com" target="_blank">外連2</a>
-      <a class="active">自己這頁</a>
+      <a
+        v-for="(item, index) in articleList"
+        :key="index"
+        :href="(item.outlink ? '/' : '') + item.url"
+        target="_blank"
+        rel="noopener"
+        aria-label="share-fb"
+        title="share-fb"
+        :class="{ active: item.menu.self }"
+      >
+        {{item.title}}
+      </a>
     </HeaderTypeA>
     <SideProgress />
     <SlideBg />
@@ -79,11 +88,11 @@
           </div>
           <div>
             <p>製作單位</p>
-            <p>聯合報新媒體中心、<br>視覺設計中心</p>
+            <p>聯合報新媒體中心、<br>視覺設計中心<br>數據中心</p>
           </div>
           <div>
             <p>監製</p>
-            <p>聯合報新聞部<br>聯合報系願景工作室<br>數據中心</p>
+            <p>聯合報新聞部<br>聯合報系願景工作室</p>
           </div>
           <div>
             <p></p>
@@ -132,7 +141,12 @@ export default {
     SideProgress,
     SlideBg,
     SlideCard,
-  }
+  },
+  computed: {
+    articleList() {
+      return this.$store.state.relatedArticles.filter(e => e.menu.active);
+    },
+  },
 }
 </script>
 

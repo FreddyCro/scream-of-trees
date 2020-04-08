@@ -5,6 +5,7 @@
       'header-bar--hide': !activeFlag,
     }"
   >
+    <HeaderTopGradient />
     <HeaderMenu :menuActiveFlag="menuActiveFlag" :simplified="true" :outlink="outlink">
       <slot />
     </HeaderMenu>
@@ -51,7 +52,8 @@ import _debounce from 'lodash.debounce';
 import { sendGaMethods } from '@/mixins/masterBuilder.js';
 import HeaderHamburger from '@/components/header/HeaderHamburger.vue';
 import HeaderMenu from '@/components/header/HeaderMenu.vue';
-import UdnLogo from '@/components/pinhead/UdnLogo.vue';
+import HeaderTopGradient from '@/components/header/HeaderTopGradient.vue';
+// import UdnLogo from '@/components/pinhead/UdnLogo.vue';
 import ShareFb from '@/components/pinhead/ShareFb.vue';
 import ShareLine from '@/components/pinhead/ShareLine.vue';
 import ShareTwitter from '@/components/pinhead/ShareTwitter.vue';
@@ -72,7 +74,8 @@ export default {
   components: {
     HeaderHamburger,
     HeaderMenu,
-    UdnLogo,
+    HeaderTopGradient,
+    // UdnLogo,
     ShareFb,
     ShareLine,
     ShareTwitter
@@ -132,6 +135,7 @@ export default {
 
   .header-bar__nav__container {
     position: relative;
+    z-index: 4000;
     width: 100%;
     height: 100%;
     display: flex;

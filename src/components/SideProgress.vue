@@ -51,11 +51,12 @@ export default {
       else this.progressList[i] = Math.min(pos.bottom / (slide.clientHeight - offset) * 100, 100);
     },
     handleListenProgress() {
-      const footerHeight = window.innerHeight - document.getElementById('footer').clientHeight + 50;
+      const counterFooterHeight = window.innerHeight - document.getElementById('footer').clientHeight;
+      const offset = counterFooterHeight > 0 ? counterFooterHeight + 50 : 0
       for (let i = 1; i < this.slideAmount; i++) {
         if (i === 0) this.handleProgressUpdate(i);
         /*最後一頁要扣掉footer的高度 */
-        if (i === this.slideAmount - 1) this.handleProgressUpdate(i, footerHeight);
+        if (i === this.slideAmount - 1) this.handleProgressUpdate(i, offset);
         else this.handleProgressUpdate(i);
       }
     },
@@ -93,10 +94,6 @@ export default {
   width: 5px;
   height: 5px;
   margin-bottom: 5px;
-  @include pc {
-    width: 10px;
-    height: 10px;
-  }
 }
 .side-progress__item__rect-wrapper {
   position: absolute;

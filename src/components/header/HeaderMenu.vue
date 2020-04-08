@@ -112,6 +112,7 @@ export default {
 @import '~/style/_mixins.scss';
 .header-menu {
   position: absolute;
+  z-index: 3000;
   visibility: hidden;
   pointer-events: none;
   top: 0;

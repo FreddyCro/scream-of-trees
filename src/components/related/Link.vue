@@ -45,7 +45,7 @@ export default {
   computed: {
     shareUrl() {
       if (this.data.outlink) return this.data.url;
-      return `/${this.data.url}`;
+      return `${document.querySelector('meta[property="og:url"]').content}${this.data.url}`;
     },
     imgPath() {
       return require(`~/img/related/${this.data.imgSrc}.png`);
