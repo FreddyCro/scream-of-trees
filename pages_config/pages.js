@@ -1,8 +1,8 @@
 const monitorCode = require("./monitor.js");
 
 /* 正式路徑 */
-// const pathRoot = 'https://udn.com/newmedia/2020/scream-of-trees/';
-const pathRoot = './';
+// const pathRoot = process.env.NODE_ENV === 'production' ? 'https://udn.com/newmedia/2020/scream-of-trees/' : './';
+const pathRoot = process.env.NODE_ENV === 'production' ? 'https://nmdap.udn.com.tw/test/scream-of-trees/' : './';
 const noChanceToGrow_path = 'no-chance-to-grow/';
 const howManyTrees_path = 'how-many-trees/';
 const growUpHealthily_path = 'grow-up-healthily/';
@@ -23,7 +23,7 @@ module.exports = {
     dateModified: '2020-04-23 T12:00:00+08:00',
     MONITOR: monitorCode,
     pageUrl: pathRoot,
-    publicPath: process.env.NODE_ENV === 'production' ? pathRoot : './',
+    publicPath: pathRoot
   },
   noChanceToGrow: {
     entry: 'src/subpages/no-chance-to-grow/main.js',
@@ -37,7 +37,7 @@ module.exports = {
     dateModified: '2020-04-23 T12:00:00+08:00',
     MONITOR: monitorCode,
     pageUrl: pathRoot + noChanceToGrow_path,
-    publicPath: process.env.NODE_ENV === 'production' ? pathRoot : './',
+    publicPath: pathRoot
   },
   howManyTrees: {
     entry: 'src/subpages/how-many-trees/main.js',
@@ -51,7 +51,7 @@ module.exports = {
     dateModified: '2020-04-23 T12:00:00+08:00',
     MONITOR: monitorCode,
     pageUrl: pathRoot + howManyTrees_path,
-    publicPath: process.env.NODE_ENV === 'production' ? pathRoot : './',
+    publicPath: pathRoot
   },
   growUpHealthily: {
     entry: 'src/subpages/grow-up-healthily/main.js',
@@ -65,6 +65,6 @@ module.exports = {
     dateModified: '2020-04-23 T12:00:00+08:00',
     MONITOR: monitorCode,
     pageUrl: pathRoot + growUpHealthily_path,
-    publicPath: process.env.NODE_ENV === 'production' ? pathRoot : './',
+    publicPath: pathRoot,
   },
 }

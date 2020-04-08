@@ -1,5 +1,5 @@
 <template>
-  <div class="page-footer">
+  <div id="footer" class="page-footer">
     <slot />
     <div class="page-footer__copyright">
       <p class="small">聯合報系 著作權所有 <span v-if="deviceType === 'mob'"><br></span>© udngroup.com All Rights Reserved.</p>

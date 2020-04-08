@@ -5,9 +5,10 @@
 
   export default new Vuex.Store({
     state: {
-      currentSlide: 1,
-      length: 6,
       folder: 'scream-of-trees',
+      isMainPage: true,
+      currentSlide: 1,
+      slideAmount: 6,
       script: [
         /**
          * type: 
@@ -46,19 +47,44 @@
       relatedArticles: [
         {
           title: '來不及長大的樹',
-          imgSrc: ''
+          imgSrc: 'relate_1',
+          url: 'no-chance-to-grow',
+          outlink: false,
+          active: true,
         },
         {
-          title: '台灣還要種多少樹才夠？',
-          imgSrc: ''
+          title: '台灣還要種多少樹才夠',
+          imgSrc: 'relate_2',
+          url: 'how-many-trees',
+          outlink: false,
+          active: true,
         },
         {
           title: '讓我們的樹健康長大',
-          imgSrc: ''
+          imgSrc: 'relate_3',
+          url: 'grow-up-healthily',
+          outlink: false,
+          active: true,
         },
         {
-          title: '願景工程「為未來種一顆樹」系列專題',
-          imgSrc: ''
+          title: '願景工程系列專題',
+          imgSrc: 'relate_4',
+          url: '',
+          outlink: true,
+          active: true,
+        },
+        {
+          title: '樹的無聲吶喊',
+          imgSrc: 'relate_5',
+          url: '',
+          outlink: false,
+          active: false,
+        },
+        {
+          title: 'AR',
+          imgSrc: '',
+          outlink: false,
+          active: false,
         }
       ]
     },

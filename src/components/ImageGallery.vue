@@ -85,14 +85,14 @@ export default {
   width: 100%;
   height: 100%;
   transition: .666s ease-in-out;
-  transform-origin: 50% 46.5vw;
+  transform-origin: 50% 46vw;
   @include pad {
-    transform-origin: 50% 35vw;
+    transform-origin: 50% 34.5vw;
   }
   @include pc {
     width: 105%;
     left: -2.5%;
-    transform-origin: 50% 25vw;
+    transform-origin: 50% 24.5vw;
   }
   &.image-gallery--zoom-layer-1 {
     transform: scale(1);

@@ -21,7 +21,8 @@
             aria-label="聯logo"
             name="聯logo"
           >
-            <UdnLogo theme="dark" />
+            <!-- <UdnLogo theme="dark" /> -->
+            <img :src="require('~/img/logo/vision_logo.svg')" alt="聯合報系願景工程">
           </a>
         </div>
       </nav>
@@ -150,16 +151,20 @@ export default {
     width: 50px;
     height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     transition: .333s ease-in;
-    &:hover {
-      transform: rotate(20deg);
-    }
+    // &:hover {
+    //   transform: rotate(20deg);
+    // }
     a {
+      position: relative;
       text-decoration: none;
       cursor: pointer;
       @include clean-tap;
+      img {       
+        width: 125px;
+      }
     }
   }
 

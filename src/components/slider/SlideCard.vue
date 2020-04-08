@@ -18,7 +18,11 @@
         class="slide-card__gradient slide-card__gradient--top"
       />
       <div class="article">
-        <slot />
+        <slot name="article"></slot>
+      </div>
+      <slot name="full"></slot>
+      <div class="article">
+        <slot name="footer"></slot>
       </div>
       <div
         v-if="type === 'responsive' && !isLast"
@@ -56,19 +60,21 @@ export default {
     };
   },
   methods: {
+    handleSlideEvent() {
+      const pos = document
+        .getElementById(`slide-card-${this.index}`)
+        .getBoundingClientRect();
+
+      if (pos.top < 0 && pos.bottom >= 0) {
+        this.$store.dispatch('updateCurrentSlide', +this.index);
+        this.$store.dispatch('updateCurrentSlidePlayStatus', +this.index);
+      }
+    },
     handleScroll() {
       if (!this.ticking) {
         if (this.$store.state.currentSlide === +this.index) return;
         window.requestAnimationFrame(() => {
-          const pos = document
-            .getElementById(`slide-card-${this.index}`)
-            .getBoundingClientRect();
-
-          if (pos.top < 0 && pos.bottom >= 0) {
-            this.$store.dispatch('updateCurrentSlide', +this.index);
-            this.$store.dispatch('updateCurrentSlidePlayStatus', +this.index);
-          }
-
+          this.handleSlideEvent();
           this.ticking = false;
         });
       }

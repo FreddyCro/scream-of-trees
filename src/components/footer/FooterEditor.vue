@@ -14,6 +14,7 @@ export default {
 @import '~/style/_mixins.scss';
 .footer-editor {
   width: 325px;
+  margin-bottom: 32px;
   @include smob {
     width: 300px;
   }

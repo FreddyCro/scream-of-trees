@@ -1,6 +1,5 @@
 <template>
   <div class="slide-bg">
-    <h1>{{currentSlide}}</h1>
     <div v-for="(item, index) in sliderImgScript"
       :key="index + 'img'"
       :class="{

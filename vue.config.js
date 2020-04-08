@@ -5,6 +5,7 @@ function resolve (dir) {
 const pages = require("./pages_config/pages.js");
 
 module.exports = {
+  publicPath: './',
   productionSourceMap: false,
   pages,
   chainWebpack: config => {
