@@ -8,8 +8,8 @@
       :href="shareUrl"
       target="_blank"
       rel="noopener"
-      aria-label="share-fb"
-      title="share-fb"
+      :ariaLabel="data.title"
+      :title="data.title"
       @click="sendGA({})"
     >
       <div class="link__body__image">

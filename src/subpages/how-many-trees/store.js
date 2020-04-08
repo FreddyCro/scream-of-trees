@@ -18,7 +18,7 @@ export default new Vuex.Store({
         posterPath: null,
         imagePath: '/slide_1/',
         hasTablet: false,
-        videoVoice: false,
+        videoController: false,
       },
       {
         type: 'i',
@@ -27,7 +27,7 @@ export default new Vuex.Store({
         posterPath: null,
         imagePath: '/slide_2/',
         hasTablet: false,
-        videoVoice: false,
+        videoController: false,
       },
       {
         type: 'v',
@@ -36,7 +36,7 @@ export default new Vuex.Store({
         posterPath: '/slide_3/',
         imagePath: null,
         hasTablet: false,
-        videoVoice: false,
+        videoController: false,
       },
       {
         type: 'v',
@@ -45,7 +45,7 @@ export default new Vuex.Store({
         posterPath: '/slide_4/',
         imagePath: null,
         hasTablet: false,
-        videoVoice: false,
+        videoController: false,
       },
       {
         type: 'i',
@@ -54,7 +54,7 @@ export default new Vuex.Store({
         posterPath: null,
         imagePath: '/slide_5/',
         hasTablet: false,
-        videoVoice: false,
+        videoController: false,
       },
       {
         type: 'v',
@@ -63,7 +63,7 @@ export default new Vuex.Store({
         posterPath: '/slide_6/',
         imagePath: null,
         hasTablet: false,
-        videoVoice: false,
+        videoController: false,
       },
       {
         type: 'i',
@@ -72,7 +72,7 @@ export default new Vuex.Store({
         posterPath: null,
         imagePath: '/slide_7/',
         hasTablet: false,
-        videoVoice: false,
+        videoController: false,
       },
       {
         type: 'i',
@@ -81,7 +81,7 @@ export default new Vuex.Store({
         posterPath: null,
         imagePath: '/slide_8/',
         hasTablet: false,
-        videoVoice: false,
+        videoController: false,
       },
       {
         type: 'i',
@@ -90,7 +90,7 @@ export default new Vuex.Store({
         posterPath: null,
         imagePath: '/slide_9/',
         hasTablet: false,
-        videoVoice: false,
+        videoController: false,
       },
       {
         type: 'v',
@@ -99,7 +99,7 @@ export default new Vuex.Store({
         posterPath: '/slide_10/',
         imagePath: null,
         hasTablet: false,
-        videoVoice: false,
+        videoController: false,
       },
       {
         type: 'i',
@@ -108,7 +108,7 @@ export default new Vuex.Store({
         posterPath: null,
         imagePath: '/slide_11/',
         hasTablet: false,
-        videoVoice: false,
+        videoController: false,
       }
     ],
     relatedArticles: [

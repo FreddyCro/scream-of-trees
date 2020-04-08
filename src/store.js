@@ -22,7 +22,7 @@ export default new Vuex.Store({
         posterPath: '/slide_1/',
         imagePath: null,
         hasTablet: false,
-        videoVoice: false,
+        videoController: false,
       },
       {
         type: 'v',
@@ -31,7 +31,7 @@ export default new Vuex.Store({
         posterPath: '/slide_2/',
         imagePath: null,
         hasTablet: false,
-        videoVoice: false,
+        videoController: false,
       },
       {
         type: 'i',
@@ -40,7 +40,7 @@ export default new Vuex.Store({
         posterPath: null,
         imagePath: '/slide_6/',
         hasTablet: true,
-        videoVoice: false,
+        videoController: false,
       },
     ],
     galleryScript: [3, 4, 5],

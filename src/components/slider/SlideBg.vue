@@ -26,6 +26,7 @@
         :trigger="item.trigger"
         :posterSrc="handleMediaSrc(item.videoPath, 'poster')"
         :videoSrc="handleMediaSrc(item.videoPath, 'vid')"
+        :controller="item.videoController"
       />
     </div>
   </div>
