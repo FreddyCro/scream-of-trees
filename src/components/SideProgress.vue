@@ -8,7 +8,11 @@
         class="side-progress__item__rect-wrapper"
         :style="{ transform: calcProgress(index) }"
       >
-        <div class="side-progress__item__rect" />
+        <div :class="{
+            'side-progress__item__rect': true,
+            'side-progress__item__rect--active': progressActiveList[+index],
+          }"
+        />
       </div>
     </div>
   </div>
@@ -23,7 +27,8 @@ export default {
     return {
       ticking: false,
       timer: 1,
-      progressList: { 0: 0.1 }
+      progressList: { 0: 0.1 },
+      progressActiveList: [],
     };
   },
   computed: {
@@ -43,17 +48,30 @@ export default {
       }
       this.progressList = {...tempArray};
     },
+    initProgressActiveList() {
+      for (let i = 0; i < this.slideAmount; i++) {
+        if (i === 0) this.progressActiveList.push(true);
+        else this.progressActiveList.push(false);
+      }
+    },
     handleProgressUpdate(i, offset = 0) {
       const slide = document.getElementById(`slide-card-${i + 1}`);
       const pos = slide.getBoundingClientRect();
-      if (pos.top > 0) this.progressList[i] = 100;
-      else if (pos.bottom < offset) this.progressList[i] = 0.1;
-      else this.progressList[i] = Math.min(pos.bottom / (slide.clientHeight - offset) * 100, 100);
+      if (pos.top > 0) {
+        this.progressActiveList[i] = false;
+        if (i !==0 ) this.progressList[i] = 100;
+      } else if (pos.bottom < offset) {
+        this.progressActiveList[i] = false;
+        if (i !==0 ) this.progressList[i] = 0.1;
+      } else {
+        this.progressActiveList[i] = true;
+        if (i !==0 ) this.progressList[i] = Math.min(pos.bottom / (slide.clientHeight - offset) * 100, 100);
+      }
     },
     handleListenProgress() {
       const counterFooterHeight = window.innerHeight - document.getElementById('footer').clientHeight;
       const offset = counterFooterHeight > 0 ? counterFooterHeight + 50 : 0
-      for (let i = 1; i < this.slideAmount; i++) {
+      for (let i = 0; i < this.slideAmount; i++) {
         if (i === 0) this.handleProgressUpdate(i);
         /*最後一頁要扣掉footer的高度 */
         if (i === this.slideAmount - 1) this.handleProgressUpdate(i, offset);
@@ -72,6 +90,7 @@ export default {
   },
   mounted() {
     this.initProgressList();
+    this.initProgressActiveList();
     document.addEventListener("scroll", this.handleScroll, true);
   },
   destroyed() {
@@ -110,6 +129,10 @@ export default {
   position: relative;
   width: 100%;
   padding-top: 100%;
-  background-color: #fff;
+  background-color: #ffffff;
+  opacity: 0.3;
+  &.side-progress__item__rect--active {
+    opacity: 1;
+  }
 }
 </style>

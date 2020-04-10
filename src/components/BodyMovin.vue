@@ -1,37 +1,62 @@
 <template>
-  <div class="body-movin-container" />
+  <div :id="'body-movin-' + name" class="body-movin-container" />
 </template>
 
 <script>
-import * as bodymovin from 'lottie-web';
+import * as bodymovin from "lottie-web";
 
 export default {
-  name: 'BodyMovin',
+  name: "BodyMovin",
   props: {
     name: {
       tpye: String,
+      required: true,
     },
     src: {
       tpye: String,
+      required: true,
     },
     loop: {
       tpye: Boolean,
+      default: false,
     },
     autoplay: {
       tpye: Boolean,
+      default: true,
+    },
+    acitve: {
+      tpye: Boolean,
+      default: false,
+    },
+    offset: {
+      tpye: Number,
+    }
+  },
+  data() {
+    return {
+      bm: null,
+    }
+  },
+  watch: {
+    acitve: {
+      handler(value) {
+        if (value) {
+          this.bm.goToAndPlay(0);
+        }
+      }
     }
   },
   mounted() {
-    const bm = bodymovin.loadAnimation({
-      container: this.$el,
-      renderer: 'svg',
-      loop: true,
+    this.bm = bodymovin.loadAnimation({
+      container: document.getElementById(`body-movin-${this.name}`),
+      renderer: "svg",
+      loop: this.loop,
       autoplay: true,
       path: this.src,
       name: this.name
     });
-  },
-}
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -39,7 +64,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
 }
 </style>

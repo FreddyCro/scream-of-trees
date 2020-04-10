@@ -4,7 +4,7 @@
       <a
         v-for="(item, index) in articleList"
         :key="index"
-        :href="(item.outlink ? '/' : '') + item.url"
+        :href="mainPage + item.url"
         target="_blank"
         rel="noopener"
         aria-label="share-fb"
@@ -58,6 +58,14 @@
         />
         <p>打針、吊點滴、做外科手術的器材‧‧‧謝翁維把工作會用到的器具一字排開，仔細一看，左側竟還擺了一把開山刀，原來，行醫12年的謝翁維每天醫治的病患正是各式各樣的樹木。</p>
         <p>隨著「護樹」觀念興起，農委會林業試驗所於2012年成立「樹木醫學中心」，並引進國外的「樹藝師」制度，要用更專業的知識與技術養育樹木，如今，全台已有228位像謝翁維一樣的樹藝師。</p>
+        <ArticleColumnOne
+          :srcMob="require('~/img/grow-up-healthily/slide_3/c_mob.jpg')"
+          :srcPad="require('~/img/grow-up-healthily/slide_3/c_pad.jpg')"
+          :srcPc="require('~/img/grow-up-healthily/slide_3/c_pc.jpg')"
+          alt='樹藝師工作時會用到的各項器材。圖／記者林澔一'
+        >
+          樹藝師工作時會用到的各項器材。圖／記者林澔一
+        </ArticleColumnOne>
       </div>
     </SlideCard>
     <SlideCard
@@ -93,7 +101,10 @@
       type="responsive"
     >
       <div slot="article">
-        <h1>QUOTE「讓樹活得像樹」─樹藝師謝翁維的醫樹哲學</h1>
+        <SlideCardQuote :textLeft="true">
+          <h3 slot="text">「讓樹活得像樹」</h3>
+          <p slot="name">─樹藝師謝翁維的醫樹哲學</p>
+        </SlideCardQuote>
         <p>謝翁維表示，自己都是從科學、專業的角度治療樹木，有時候遇到一些不容易治療的樹，他甚至會建議放棄救樹。</p>
         <p>「有人會因此說我對樹沒有感情，」但謝翁維寧可被貼上「太過理性」的標籤，也不願不計成本去救不該被救起的樹木。</p>
         <p>許多治療樹的方式十分殘酷─樹的根系完全被切除，僅能用鋼構支撐，有些人會覺得，救了這棵樹的樹藝師的技術高超，但對謝翁維來說，「樹都已經不太像樹了，於心何忍？」</p>
@@ -111,6 +122,14 @@
         />
         <p>丟沙袋、掛攀樹繩、起身上樹，才一眨眼，廖偉健已爬上兩層樓高的大樹，他熟練的在樹幹上行走，動作輕盈地幾乎未驚動任何樹幹與枝條。</p>
         <p>身為專業攀樹師，廖偉健的日常工作包含修剪枝條、清理枯枝、採集種子等，只要是須要爬到樹上的工作，都是攀樹師的工作，12年下來，廖偉健已爬了約3,000棵的樹。</p>
+        <ArticleColumnOne
+          :srcMob="require('~/img/grow-up-healthily/slide_9/c_mob.jpg')"
+          :srcPad="require('~/img/grow-up-healthily/slide_9/c_pad.jpg')"
+          :srcPc="require('~/img/grow-up-healthily/slide_9/c_pc.jpg')"
+          alt='攀樹師工作時會用到的各項器材。圖／記者陳正興'
+        >
+          攀樹師工作時會用到的各項器材。圖／記者陳正興
+        </ArticleColumnOne>
       </div>
     </SlideCard>
     <SlideCard index="10" type="responsive" :noText="true" />
@@ -152,7 +171,10 @@
       type="responsive"
     >
       <div slot="article">
-        <h1>QUOTE「種樹或種肝，都是生命的移植。換肝一次救一個人，種樹卻能世世代代守護大地。 」─高雄長庚名譽院長陳肇隆</h1>
+        <SlideCardQuote>
+          <h3 slot="text">「種樹或種肝，都是生命的移植。換肝一次救一個人，種樹卻能世世代代守護大地。 」</h3>
+          <p slot="name">─高雄長庚名譽院長陳肇隆</p>
+        </SlideCardQuote>
         <p>陳肇隆愛上種樹，緣自於朋友贈送的一棵肉桂樹。肉桂種子11月掉落，他好奇撿拾栽培，出芽率奇高，仿如源源不絕的生命熱力，從種子育成幼苗，長成小樹再分送移植，愈培育愈多。</p>
         <p>高雄長庚的樹歷經風吹雨打，卻沒倒過。陳肇隆說，他種樹土法煉鋼，從種子開始育苗，從小盆換到大盆，最後再移植到土壤裡，「換盆不斷根」不破壞根系，樹會長得非常壯。</p>
         <p>「任何事都一樣，Never too Late（永不嫌晚）。」陳肇隆說，常人眼裡，種樹是小事，但勿以善小而不為，全台一人種一棵樹，力量就非常可觀。</p>
@@ -240,6 +262,7 @@
 </template>
 
 <script>
+import ArticleColumnOne from '@/components/layout/ArticleColumnOne.vue';
 import FooterEditor from '@/components/footer/FooterEditor.vue';
 import FooterFbComment from '@/components/footer/FooterFbComment.vue';
 import FooterLogo from '@/components/footer/FooterLogo.vue';
@@ -252,11 +275,13 @@ import SeriesTitle from '@/components/SeriesTitle.vue';
 import SideProgress from '@/components/SideProgress.vue';
 import SlideBg from '@/components/slider/SlideBg.vue';
 import SlideCard from '@/components/slider/SlideCard.vue';
+import SlideCardQuote from '@/components/slider/SlideCardQuote.vue';
 import SlideCardTitle from '@/components/slider/SlideCardTitle.vue';
 
 export default {
   name: 'App',
   components: {
+    ArticleColumnOne,
     FooterEditor,
     FooterFbComment,
     FooterLogo,
@@ -269,12 +294,18 @@ export default {
     SideProgress,
     SlideBg,
     SlideCard,
+    SlideCardQuote,
     SlideCardTitle,
   },
   computed: {
     articleList() {
       return this.$store.state.relatedArticles.filter(e => e.menu.active);
     },
+  },
+  data() {
+    return {
+      mainPage: document.querySelector('meta[property="main-page"]').content,
+    }
   },
 }
 </script>

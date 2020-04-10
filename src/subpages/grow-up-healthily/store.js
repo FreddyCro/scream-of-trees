@@ -18,6 +18,7 @@ export default new Vuex.Store({
         imagePath: null,
         hasTablet: false,
         videoController: false,
+        slowMotion: 0.6,
         squareType: false,
       },
       {
@@ -198,6 +199,7 @@ export default new Vuex.Store({
         imagePath: null,
         hasTablet: false,
         videoController: false,
+        slowMotion: 0.8,
         squareType: false,
       },
       {

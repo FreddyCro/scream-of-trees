@@ -4,7 +4,7 @@
       <a
         v-for="(item, index) in articleList"
         :key="index"
-        :href="(item.outlink ? '/' : '') + item.url"
+        :href="mainPage + item.url"
         target="_blank"
         rel="noopener"
         aria-label="share-fb"
@@ -26,12 +26,22 @@
           first="台灣還要"
           second="種多少樹才夠？"
         />
-        <p>20%-40%：國際主要城市綠覆率</p>
-        <p>不到5%：台北市、新北市、桃園市、台中市、台南市的綠覆率</p>
+        <p><span class="green-text green-text-large">20-40%</span>國際主要城市綠覆率</p>
+        <p><span class="green-text green-text-large">不到5%</span>台北市、新北市、桃園市、台中市、台南市的綠覆率</p>
         <p>種樹是減碳、改善地球暖化與熱島效應最簡單的方法，許多國家和城市展現企圖心推動植樹抗暖的氣候行動。</p>
         <p>城市綠化無所不用其極的新加坡，目前綠覆率約30%，目標也提高到40%。義大利米蘭未來12年內要種300萬棵樹。</p>
         <p>反觀台灣，六都的綠覆率低得可憐，五個都低於5%，綠覆率最高的高雄市也低於法令規定的10%。</p>
         <p>台灣都會區有多少樹？我們到底還要種多少樹才夠？</p>
+        <p><br></p>
+        <h4>六都綠覆率</h4>
+        <ArticleColumnOne
+          :srcMob="require('~/img/how-many-trees/slide_1/chart_mob.svg')"
+          :srcPad="require('~/img/how-many-trees/slide_1/chart_pc.svg')"
+          :srcPc="require('~/img/how-many-trees/slide_1/chart_pc.svg')"
+          alt='註：「綠地」含公園、綠地、廣場、兒童遊樂場及體育場所5大設施，實際綠地低於上述比率'
+        >
+          資料來源／107年營建統計年報   製表／鄭朝陽
+        </ArticleColumnOne>
       </div>
     </SlideCard>
     <SlideCard
@@ -45,7 +55,7 @@
         />
         <p>國際主要城市明白種樹的重要性，都追求「把樹種好」，讓樹木像一把超級大傘為城市遮陽、引風，為夏季發燒的城市降溫。</p>
         <p>我們台灣呢？都市計畫法數十年來死守10%天花板，完全無視國際趨勢，裡頭還要扣除兒童遊戲場、體育場館等非綠化設施，真正的綠地實在少得可憐。</p>
-        <p>以台北市為例，內政部統計北市綠地面積占比為4.8%，但環境品質文教基金會董事長謝英士扣除山坡地後，相對人口稠密的市區約有10萬棵樹。平均一棵喬木的樹蔭面積為16平方公尺，市區被樹冠覆蓋的面積約1.6平方公里，只占市區的1.3%，若要達到國際建議的兩成綠覆率，北市須再種150萬棵樹才行。</p>
+        <p>以台北市為例，內政部統計北市綠地面積占比為4.8%，但環境品質文教基金會董事長謝英士扣除山坡地後，相對人口稠密的市區約有10萬棵樹。平均一棵喬木的樹蔭面積為16平方公尺，市區被樹冠覆蓋的面積約1.6平方公里，只占市區的1.3%，<span class="text-bold">若要達到國際建議的兩成綠覆率，北市須再種150萬棵樹才行</span>。</p>
         <p>台灣種樹30年計畫聯盟發言人劉柏宏說，政府要重新定義「綠覆率」，不能再摻雜兒童遊戲場等設施含糊打混，應改為「樹冠覆蓋面積」，能以衛星或航照影像具體量測，才能督促政府重視植樹綠化政策。</p>
       </div>
     </SlideCard>
@@ -68,6 +78,14 @@
       <div slot="article">
         <p>據中央地質調查所調查，1978年到2009年間，全台多處海岸退縮100到650公尺。</p>
         <p>台灣本島的人工海岸線比例高達56.29%，海岸土地過度開發、海岸線嚴重人工化、海平面上升均是衝擊台灣海岸線的因素。海岸線退縮不僅危害國土保安，也威脅民眾生命財產安全。</p>
+        <p><br></p>
+        <h4>台灣海岸線退縮情形</h4>
+        <CoastMap />
+        <ArticleColumnOne
+          :srcMob="require('~/img/how-many-trees/slide_4/chart_mob.svg')"
+          :srcPad="require('~/img/how-many-trees/slide_4/chart_pc.svg')"
+          :srcPc="require('~/img/how-many-trees/slide_4/chart_pc.svg')"
+        />
       </div>
     </SlideCard>
     <SlideCard
@@ -121,6 +139,9 @@
     >
       <div slot="article">
         <p>海岸造林就像在挑戰不可能任務。程禮怡表示，國家整體政策應該要有一套上位計劃，來保護這些防風林，避免當大型開發案等衝突引發時，土地遭到任意解編。不僅前功盡棄，國土保安的防線也失守了。</p>
+        <p><br></p>
+        <h4>慈心歷年海岸造林成果</h4>
+        <CoastTrees />
       </div>
     </SlideCard>
     <SlideCard
@@ -179,6 +200,9 @@
 </template>
 
 <script>
+import ArticleColumnOne from '@/components/layout/ArticleColumnOne.vue';
+import CoastMap from '@/components/CoastMap.vue';
+import CoastTrees from '@/components/CoastTrees.vue';
 import FooterEditor from '@/components/footer/FooterEditor.vue';
 import FooterFbComment from '@/components/footer/FooterFbComment.vue';
 import FooterLogo from '@/components/footer/FooterLogo.vue';
@@ -196,6 +220,9 @@ import SlideCardTitle from '@/components/slider/SlideCardTitle.vue';
 export default {
   name: 'App',
   components: {
+    ArticleColumnOne,
+    CoastMap,
+    CoastTrees,
     FooterEditor,
     FooterFbComment,
     FooterLogo,
@@ -210,6 +237,11 @@ export default {
     SlideCard,
     SlideCardTitle,
   },
+  data() {
+    return {
+      mainPage: document.querySelector('meta[property="main-page"]').content,
+    }
+  },
   computed: {
     articleList() {
       return this.$store.state.relatedArticles.filter(e => e.menu.active);
@@ -219,5 +251,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+@import '~/style/trees.scss';
 </style>

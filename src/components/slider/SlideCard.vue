@@ -16,7 +16,7 @@
     >
       <div
         v-if="type === 'responsive'"
-        class="slide-card__gradient slide-card__gradient--top"
+        :class="{'slide-card__gradient': true, 'slide-card__gradient--last': isLast}"
       />
       <div class="article">
         <slot name="article"></slot>
@@ -25,10 +25,6 @@
       <div v-if="isLast" class="article">
         <slot name="footer"></slot>
       </div>
-      <div
-        v-if="type === 'responsive' && !isLast"
-        class="slide-card__gradient slide-card__gradient--bottom"
-      />
     </div>
     <div v-else class="slide-card__content-no-text">
       <div
@@ -97,7 +93,7 @@ export default {
         .getElementById(`slide-card-${this.index}`)
         .getBoundingClientRect();
       
-      if (pos.top < window.innerHeight && pos.bottom >= window.innerHeight) {
+      if (pos.top < window.innerHeight * 0.2 && pos.bottom >= window.innerHeight * 0.2) {
         this.$store.dispatch('updateCurrentSlide', +this.index);
         this.$store.dispatch('updateCurrentSlidePlayStatus', +this.index);
       }
@@ -127,7 +123,7 @@ export default {
 .slide-card {
   position: relative;
   width: 100%;
-  padding-top: 100vh;
+  padding-top: 120vh;
   // border: solid 5px red;
   &.slide-card--last {
     padding-top: 125vh;
@@ -144,7 +140,7 @@ export default {
   color: #f5f5f5;
   padding-top: 120px;
   padding-bottom: 120px;
-  background-color: #000000;
+  min-height: 85vh;
   &.slide-card__content--small {
     position: absolute;
     top: 50%;
@@ -158,12 +154,12 @@ export default {
       width: auto;
       max-width: 80%;
       padding: 24px 32px;
-      background-color: #000000dd;
+      background-color: rgba($color: #000000, $alpha: 0.78);
     }
   }
   .article {
     padding: 0 32px;
-    background-color: #000000dd;
+    background-color: transparent;
     @include pc {
       padding: 0;
     }
@@ -176,23 +172,22 @@ export default {
   .slide-card__gradient {
     position: absolute;
     left: 0;
+    top: -25%;
     width: 100%;
-    height: 35vh;
-    &.slide-card__gradient--top {
-      top: 0;
-      transform: translateY(-99%);
-      background-image: linear-gradient(to top, #000000ff, #00000000, #00000000);
-    }
-    &.slide-card__gradient--bottom {
+    height: 150%;
+    background-image: linear-gradient(to top, rgba($color: #000000, $alpha: 0), rgba($color: #000000, $alpha: 0.68), rgba($color: #000000, $alpha: 0.78), rgba($color: #000000, $alpha: 0.68),  rgba($color: #000000, $alpha: 0));
+    
+
+    &.slide-card__gradient--last {
+      top: auto;
       bottom: 0;
-      transform: translateY(99%);
-      background-image: linear-gradient(to bottom, #000000ff, #00000000, #00000000);
+      background-image: linear-gradient(to top, rgba($color: #000000, $alpha: 0.78), rgba($color: #000000, $alpha: 0.68), rgba($color: #000000, $alpha: 0));
     }
   }
 }
 .slide-card__content-no-text {
   position: relative;
-  height: 100vh;
+  height: 50vh;
   z-index: 10;
   .slide-bg-video__controller {
     pointer-events: none;

@@ -23,6 +23,7 @@ export default new Vuex.Store({
         imagePath: null,
         hasTablet: false,
         videoController: false,
+        slowMotion: 0.7,
         squareType: false,
       },
       {

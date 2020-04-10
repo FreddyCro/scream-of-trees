@@ -4,7 +4,7 @@
       <a
         v-for="(item, index) in articleList"
         :key="index"
-        :href="(item.outlink ? '/' : '') + item.url"
+        :href="mainPage + item.url"
         target="_blank"
         rel="noopener"
         aria-label="share-fb"
@@ -144,6 +144,11 @@ export default {
     articleList() {
       return this.$store.state.relatedArticles.filter(e => e.menu.active);
     },
+  },
+  data() {
+    return {
+      mainPage: document.querySelector('meta[property="main-page"]').content,
+    }
   },
 }
 </script>

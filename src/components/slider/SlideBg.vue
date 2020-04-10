@@ -34,6 +34,7 @@
         :videoSrc="handleMediaSrc(item.videoPath, 'vid')"
         :controller="item.videoController"
         :squareType="item.squareType"
+        :slowMotion="item.slowMotion || 0"
       />
     </div>
   </div>

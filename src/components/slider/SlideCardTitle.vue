@@ -56,7 +56,7 @@ export default {
 
 .slide-card-title {
   position: absolute;
-  left: 10%;
+  left: 20%;
   top: 0;
   transform: translateY(-100%);
   @include pc {
@@ -64,15 +64,15 @@ export default {
     transform: translateY(-115%);
   }
   h1 {
-    font-family: SourceHanSerifTC;
+    font-family: source-han-serif-tc;
     line-height: 0.8;
     display: inline;
     writing-mode: vertical-rl;
     letter-spacing: 1.5rem;
   }
   h2 {
-    font-family: SourceHanSerifTC;
-    line-height: 0.9;
+    font-family: source-han-serif-tc;
+    line-height: 0.8;
     display: inline;
     writing-mode: vertical-rl;
     letter-spacing: 1rem;
@@ -103,7 +103,10 @@ export default {
     }
     &.second {
       display: inline-block;
-      min-height: 450px;
+      min-height: 350px;
+      @include pc {
+        min-height: 450px;
+      }
     }
   }
 }
@@ -116,9 +119,15 @@ export default {
   min-height: 100%;
 }
 .slide-card-title__main {
-  margin-bottom: 120px;
+  margin-bottom: 350px;
+  @include smob {
+    margin-bottom: 270px;
+  }
 }
 .slide-card-title__sub {
-  margin-bottom: 90px;
+  margin-bottom: 20px;
+  @include pc {
+    margin-bottom: 0;
+  }
 }
 </style>

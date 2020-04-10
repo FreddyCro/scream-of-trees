@@ -1,0 +1,21 @@
+@import '~/style/_mixins.scss';
+.green-text-large {
+  display: block;
+  font-size: 30px;
+  font-weight: bold;
+  @include pc {
+    margin-right: 24px;
+    display: inline;
+    font-size: 35px;
+  }
+}
+.green-text {
+  color: #9bd200;
+}
+.green-underline {
+  border-bottom: 1px solid #9bd200;
+  // text-decoration: underline #9bd200;
+}
+.text-bold {
+  font-weight: bold;
+}

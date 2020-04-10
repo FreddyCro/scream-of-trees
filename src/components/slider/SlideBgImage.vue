@@ -41,7 +41,7 @@ export default {
   height: 100vh;
   transition: 2s ease-out;
   &.slide-bg-image--zoom {
-    transform: scale(1.05);
+    transform: scale(1.01);
   }
 }
 </style>

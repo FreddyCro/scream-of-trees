@@ -46,7 +46,11 @@ export default {
     squareType: {
       type: Boolean,
       default: false
-    }
+    },
+    slowMotion: {
+      type: Number,
+      default: 0
+    },
   },
   computed: {
     videoActive() {
@@ -61,8 +65,7 @@ export default {
     }
   },
   methods: {
-    handleUpdateVideoTime() {
-      const video = document.getElementById(`video-${this.trigger}`);
+    handleUpdateVideoTime(video) {
       video.ontimeupdate = (e) => {
         if (!this.$store.state.videoStatus.controllerActive) ;
         this.$store.dispatch('updateVideoTime', {
@@ -73,7 +76,9 @@ export default {
     }
   },
   mounted() {
-    if (this.controller) this.handleUpdateVideoTime();
+    const video = document.getElementById(`video-${this.trigger}`);
+    if (this.slowMotion) video.playbackRate = this.slowMotion;
+    if (this.controller) this.handleUpdateVideoTime(video);
   }
 };
 </script>

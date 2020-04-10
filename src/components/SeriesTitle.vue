@@ -36,14 +36,14 @@ export default {
     }
   }
   h1 {
-    font-family: SourceHanSerifTC;
+    font-family: source-han-serif-tc;
     line-height: 1;
     display: inline;
     writing-mode: vertical-rl;
     letter-spacing: 0.6rem;
   }
   h4 {
-    font-family: SourceHanSerifTC;
+    font-family: source-han-serif-tc;
     line-height: 1.6;
     display: inline;
     writing-mode: vertical-rl;
