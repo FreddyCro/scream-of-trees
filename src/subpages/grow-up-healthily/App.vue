@@ -15,7 +15,7 @@
       </a>
     </HeaderTypeA>
     <SideProgress />
-    <!-- <SlideBg /> -->
+    <SlideBg />
     <SlideCard
       index="1"
       type="responsive"
@@ -69,7 +69,7 @@
         <p>「通常在做檢測之前，會先敲擊樹木，看敲擊的聲音是不是空洞的，」謝翁維拿著一把槌子，在外表看似健康的行道樹上左敲敲、右敲敲，憑聲音判斷樹木的空洞狀況。</p>
       </div>
     </SlideCard>
-    <SlideCard index="5" type="small" />
+    <SlideCard index="5" type="responsive" :noText="true" />
     <SlideCard
       index="6"
       type="responsive"
@@ -113,7 +113,7 @@
         <p>身為專業攀樹師，廖偉健的日常工作包含修剪枝條、清理枯枝、採集種子等，只要是須要爬到樹上的工作，都是攀樹師的工作，12年下來，廖偉健已爬了約3,000棵的樹。</p>
       </div>
     </SlideCard>
-    <SlideCard index="10" type="responsive" />
+    <SlideCard index="10" type="responsive" :noText="true" />
     <SlideCard
       index="11"
       type="responsive"
@@ -122,7 +122,7 @@
         <p>樹上的世界，和地面上的世界，有什麼不同？除了迷人的風景外，讓廖偉健最有感觸的，是樹木身上的「傷痕」。</p>
       </div>
     </SlideCard>
-    <SlideCard index="12" type="responsive" />
+    <SlideCard index="12" type="responsive" :noText="true" />
     <SlideCard
       index="13"
       type="responsive"
@@ -146,7 +146,7 @@
         <p>陳肇隆是國際換肝權威，創下國際多項換肝手術紀錄。這雙救人無數的手，也是鬆土、播種、育苗、種樹的手。</p>
       </div>
     </SlideCard>
-    <SlideCard index="15" type="responsive" />
+    <SlideCard index="15" type="responsive" :noText="true" />
     <SlideCard
       index="16"
       type="responsive"
@@ -171,7 +171,7 @@
         <p>不到50歲的洪士琪出身泛新光集團第三代，4年前從事業高峰的專業經理人，轉身成為揮汗的種樹人。</p>
       </div>
     </SlideCard>
-    <SlideCard index="18" type="responsive" />
+    <SlideCard index="18" type="responsive" :noText="true" />
     <SlideCard
       index="19"
       type="responsive"
@@ -214,10 +214,6 @@
           <div>
             <p>網頁製作</p>
             <p>楊若榆</p>
-          </div>
-          <div>
-            <p>數位行銷</p>
-            <p></p>
           </div>
           <div>
             <p>製作單位</p>

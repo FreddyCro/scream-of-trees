@@ -86,8 +86,11 @@ export default {
 .side-progress {
   position: fixed;
   z-index: 5000;
-  top: 10vh;
+  top: 15vh;
   right: 10px;
+  @include pc {
+    top: 100px;
+  }
 }
 .side-progress__item {
   position: relative;

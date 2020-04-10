@@ -55,7 +55,14 @@ export default {
 @import '~/style/_mixins.scss';
 
 .slide-card-title {
-  min-height: 100%;
+  position: absolute;
+  left: 10%;
+  top: 0;
+  transform: translateY(-100%);
+  @include pc {
+    left: 0%;
+    transform: translateY(-115%);
+  }
   h1 {
     font-family: SourceHanSerifTC;
     line-height: 0.8;

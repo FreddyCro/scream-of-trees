@@ -17,7 +17,7 @@ export default {
   props: {
     isMuted: {
       type: Boolean,
-      default: false
+      // default: true
     }
   },
 }
@@ -31,8 +31,8 @@ export default {
   @include clean-tap;
   .icon-wrapper {
     .stat-circle {
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
       transform: rotate(-90deg);
       circle.bg {
         fill: none;
@@ -58,12 +58,11 @@ export default {
     .controlIcon {
       position: absolute;
       width: 40%;
-      height: 40%;
+      height: 16px;
       top: 50%;
       left: 50%;
-      transform: translate(-40%, -65%);
+      transform: translate(-50%, -65%);
       opacity: 0.8;
-      height: 20px;
     }
   }
 }

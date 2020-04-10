@@ -23,6 +23,7 @@ export default new Vuex.Store({
         imagePath: null,
         hasTablet: false,
         videoController: false,
+        squareType: false,
       },
       {
         type: 'v',
@@ -32,15 +33,17 @@ export default new Vuex.Store({
         imagePath: null,
         hasTablet: false,
         videoController: false,
+        squareType: true,
       },
       {
         type: 'i',
         trigger: 6,
         videoPath: null,
         posterPath: null,
-        imagePath: '/slide_6/',
+        imagePath: null,
         hasTablet: true,
         videoController: false,
+        squareType: false,
       },
     ],
     galleryScript: [3, 4, 5],
@@ -111,7 +114,8 @@ export default new Vuex.Store({
         outlink: false,
         active: false,
       }
-    ]
+    ],
+    useVideoControl: false,
   },
   mutations: {
     updateCurrentSlide(state, payload) {

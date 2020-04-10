@@ -8,8 +8,14 @@
       }"
     >
       <SlideBgImage 
-        v-if="item.type === 'i' && item.imagePath"
+        v-if="item.type === 'i' && item.imagePath && item.trigger !== $store.state.slideAmount"
         :imageSrc="handleMediaSrc(item.imagePath, 'img')"
+        :trigger="item.trigger"
+      />
+      <!-- 封底圖片 -->
+      <SlideBgImage
+        v-if="item.trigger === $store.state.slideAmount"
+        :imageSrc="require('~/img/last/' + selectSrc_3('mob', 'pad', 'pc') + '.jpg')"
         :trigger="item.trigger"
       />
     </div>
@@ -27,6 +33,7 @@
         :posterSrc="handleMediaSrc(item.videoPath, 'poster')"
         :videoSrc="handleMediaSrc(item.videoPath, 'vid')"
         :controller="item.videoController"
+        :squareType="item.squareType"
       />
     </div>
   </div>
@@ -88,6 +95,7 @@ export default {
 @import "~/style/_mixins.scss";
 .slide-bg {
   position: fixed;
+  overflow: hidden;
   width: 100%;
   height: 100vh;
 }
@@ -98,9 +106,6 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   &.slide-bg__item-container--active {

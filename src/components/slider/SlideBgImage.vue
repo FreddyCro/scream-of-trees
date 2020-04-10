@@ -38,7 +38,7 @@ export default {
 <style lang="scss" scoped>
 .slide-bg-image {
   min-width: 100%;
-  min-height: 100%;
+  height: 100vh;
   transition: 2s ease-out;
   &.slide-bg-image--zoom {
     transform: scale(1.05);

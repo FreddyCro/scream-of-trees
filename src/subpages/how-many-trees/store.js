@@ -19,6 +19,7 @@ export default new Vuex.Store({
         imagePath: '/slide_1/',
         hasTablet: false,
         videoController: false,
+        squareType: false,
       },
       {
         type: 'i',
@@ -28,6 +29,7 @@ export default new Vuex.Store({
         imagePath: '/slide_2/',
         hasTablet: false,
         videoController: false,
+        squareType: false,
       },
       {
         type: 'v',
@@ -37,6 +39,7 @@ export default new Vuex.Store({
         imagePath: null,
         hasTablet: false,
         videoController: false,
+        squareType: false,
       },
       {
         type: 'v',
@@ -46,6 +49,7 @@ export default new Vuex.Store({
         imagePath: null,
         hasTablet: false,
         videoController: false,
+        squareType: false,
       },
       {
         type: 'i',
@@ -55,6 +59,7 @@ export default new Vuex.Store({
         imagePath: '/slide_5/',
         hasTablet: false,
         videoController: false,
+        squareType: false,
       },
       {
         type: 'v',
@@ -64,6 +69,7 @@ export default new Vuex.Store({
         imagePath: null,
         hasTablet: false,
         videoController: false,
+        squareType: false,
       },
       {
         type: 'i',
@@ -73,6 +79,7 @@ export default new Vuex.Store({
         imagePath: '/slide_7/',
         hasTablet: false,
         videoController: false,
+        squareType: false,
       },
       {
         type: 'i',
@@ -82,6 +89,7 @@ export default new Vuex.Store({
         imagePath: '/slide_8/',
         hasTablet: false,
         videoController: false,
+        squareType: false,
       },
       {
         type: 'i',
@@ -91,6 +99,7 @@ export default new Vuex.Store({
         imagePath: '/slide_9/',
         hasTablet: false,
         videoController: false,
+        squareType: false,
       },
       {
         type: 'v',
@@ -98,18 +107,20 @@ export default new Vuex.Store({
         videoPath: '/slide_10/',
         posterPath: '/slide_10/',
         imagePath: null,
-        hasTablet: false,
+        hasTablet: true,
         videoController: false,
+        squareType: false,
       },
       {
         type: 'i',
         trigger: 11,
         videoPath: null,
         posterPath: null,
-        imagePath: '/slide_11/',
-        hasTablet: false,
+        imagePath: null,
+        hasTablet: true,
         videoController: false,
-      }
+        squareType: false,
+      },
     ],
     relatedArticles: [
       {
@@ -178,7 +189,8 @@ export default new Vuex.Store({
         outlink: false,
         active: false,
       }
-    ]
+    ],
+    useVideoControl: false,
   },
   mutations: {
     updateCurrentSlide(state, payload) {

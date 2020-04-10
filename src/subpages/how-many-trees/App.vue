@@ -15,7 +15,7 @@
       </a>
     </HeaderTypeA>
     <SideProgress />
-    <!-- <SlideBg /> -->
+    <SlideBg />
     <SlideCard
       index="1"
       type="responsive"
@@ -153,10 +153,6 @@
           <div>
             <p>網頁製作</p>
             <p>楊若榆</p>
-          </div>
-          <div>
-            <p>數位行銷</p>
-            <p></p>
           </div>
           <div>
             <p>製作單位</p>

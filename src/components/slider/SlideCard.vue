@@ -8,6 +8,7 @@
     }"
   >
     <div
+      v-if="!noText"
       :class="{
         'slide-card__content': true,
         'slide-card__content--small': type === 'small',
@@ -21,7 +22,7 @@
         <slot name="article"></slot>
       </div>
       <slot name="full"></slot>
-      <div class="article">
+      <div v-if="isLast" class="article">
         <slot name="footer"></slot>
       </div>
       <div
@@ -29,12 +30,39 @@
         class="slide-card__gradient slide-card__gradient--bottom"
       />
     </div>
+    <div v-else class="slide-card__content-no-text">
+      <div
+        v-if="$store.state.useVideoControl"
+        :class="{
+          'slide-bg-video__controller': true,
+          'slide-bg-video__controller--active': $store.state.videoStatus.controllerActive,
+        }"
+      >
+        <div class="slide-bg-video__controller__button" @click="$store.dispatch('updateVideoMute')">
+          <VideoMuted :isMuted="$store.state.videoStatus.isMuted" />
+        </div>
+        <div class="slide-bg-video__controller__button" @click="$store.dispatch('updateVideoPlay')">
+          <VideoDuration
+            :currentTime="$store.state.videoStatus.currentTime"
+            :totalTime="$store.state.videoStatus.totalTime"
+            :isPlay="$store.state.videoStatus.isPlay"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import VideoDuration from '@/components/VideoDuration';
+import VideoMuted from '@/components/VideoMuted';
+
 export default {
   name: 'SlideCard',
+  components: {
+    VideoDuration,
+    VideoMuted
+  },
   props: {
     /**
      * type:
@@ -52,6 +80,10 @@ export default {
     index: {
       type: String,
       required: true
+    },
+    noText: {
+      type: Boolean,
+      default: false,
     }
   },
   data() {
@@ -64,8 +96,8 @@ export default {
       const pos = document
         .getElementById(`slide-card-${this.index}`)
         .getBoundingClientRect();
-
-      if (pos.top < 0 && pos.bottom >= 0) {
+      
+      if (pos.top < window.innerHeight && pos.bottom >= window.innerHeight) {
         this.$store.dispatch('updateCurrentSlide', +this.index);
         this.$store.dispatch('updateCurrentSlidePlayStatus', +this.index);
       }
@@ -95,41 +127,43 @@ export default {
 .slide-card {
   position: relative;
   width: 100%;
-  padding: 100vh 0;
+  padding-top: 100vh;
   // border: solid 5px red;
   &.slide-card--last {
-    padding-top: 200vh;
-    padding-bottom: 0;
+    padding-top: 125vh;
   }
   &.slide-card--small {
-    height: 125vh;
+    height: 200vh;
     padding: 0;
     background-color: transparent;
   }
 }
 .slide-card__content {
   position: relative;
-  width: 100%;
+  z-index: 20;
   color: #f5f5f5;
   padding-top: 120px;
   padding-bottom: 120px;
   background-color: #000000;
   &.slide-card__content--small {
     position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 275px;
-    padding: 16px 32px;
-    background-color: #000000dd;
-    transform: translate(-50%, -200%);
-    // transform: translate(-50%, calc(-25vh - 200%));
-    @include pc {
-      width: 320px;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: transparent;
+    transform: translate(0, -50%);
+    .article {
+      display: inline-block;
+      width: auto;
+      max-width: 80%;
+      padding: 24px 32px;
+      background-color: #000000dd;
     }
   }
   .article {
-    padding: 0 16px;
-    background-color: transparent;
+    padding: 0 32px;
+    background-color: #000000dd;
     @include pc {
       padding: 0;
     }
@@ -143,16 +177,45 @@ export default {
     position: absolute;
     left: 0;
     width: 100%;
-    height: 50vh;
+    height: 35vh;
     &.slide-card__gradient--top {
       top: 0;
-      transform: translateY(-95%);
-      background-image: linear-gradient(to top, #000000ff, #00000000);
+      transform: translateY(-99%);
+      background-image: linear-gradient(to top, #000000ff, #00000000, #00000000);
     }
     &.slide-card__gradient--bottom {
       bottom: 0;
-      transform: translateY(95%);
-      background-image: linear-gradient(to bottom, #000000ff, #00000000);
+      transform: translateY(99%);
+      background-image: linear-gradient(to bottom, #000000ff, #00000000, #00000000);
+    }
+  }
+}
+.slide-card__content-no-text {
+  position: relative;
+  height: 100vh;
+  z-index: 10;
+  .slide-bg-video__controller {
+    pointer-events: none;
+    position: fixed;
+    left: 50%;
+    top: calc(50% + 47.5vw);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 72px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .333s ease-in-out;
+    @include pc {
+      left: initial;
+      right: 0;
+      margin-right: 10px;
+      top: 50px;
+      transform: translate(0, 0);
+    }
+    &.slide-bg-video__controller--active {
+      opacity: 1;
+      pointer-events: auto;
     }
   }
 }

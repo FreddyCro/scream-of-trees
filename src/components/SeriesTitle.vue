@@ -14,15 +14,15 @@ export default {
 <style lang="scss" scoped>
 @import "~/style/_mixins.scss";
 .series-title {
+  position: absolute;
+  left: 0;
+  top: 0;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   padding-left: 25%;
   margin-bottom: 125px;
-  min-height: 100%;
-  @include pc {
-    margin-bottom: 200px;
-  }
+  transform: translateY(-150%);
   span {
     display: inline-block;
     line-height: 1;

@@ -45,7 +45,7 @@ export default {
   computed: {
     shareUrl() {
       if (this.data.outlink) return this.data.url;
-      return `${document.querySelector('meta[property="og:url"]').content}${this.data.url}`;
+      return `${document.querySelector('meta[property="main-page"]').content}${this.data.url}`;
     },
     imgPath() {
       return require(`~/img/related/${this.data.imgSrc}.png`);
@@ -65,11 +65,15 @@ export default {
   padding-bottom: 64px;
   opacity: 0.3;
   transition: .333s ease-out;
+  transform-origin: 50% 0;
   @include pad {
     height: 576px;
   }
   @include pc {
     height: 310px;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
   &.link--active {
     opacity: 1;
@@ -97,13 +101,11 @@ export default {
       @include pc {
         justify-content: flex-start;
       }
+      
       img {
         height: 100%;
         min-width: 100%;
       }
-    }
-    .link__body__title {
-
     }
   }
 }

@@ -6,7 +6,7 @@
       <circle class="progress" cx="10" cy="10" r="8" />
       <text x="62%" y="70%">{{ updateVideoPercent }}%</text>
     </svg>
-    <img class="controlIcon controlStop" v-if="isPlay" :src="require('~/img/play/play_1.png')" alt="play">
+    <img class="controlIcon controlStop" v-if="!isPlay" :src="require('~/img/play/play_1.png')" alt="play">
     <img class="controlIcon controlPlay" v-else :src="require('~/img/play/play_2.png')" alt="pause">
   </div>
 </div>
@@ -28,7 +28,7 @@ export default {
     },
     isPlay: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   computed: {
@@ -53,8 +53,8 @@ export default {
   @include clean-tap;
   .loading {
     .stat-circle {
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
       transform: rotate(-90deg);
       circle.bg {
         fill: none;
@@ -83,19 +83,15 @@ export default {
     .controlIcon {
       position: absolute;
       width: 50%;
-      height: 50%;
+      height: 16px;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
       opacity: 0.8;
-      height: 20px;
-
       &.controlPlay {
-        transform: translate(-40%, -55%);
+        transform: translate(-40%, -65%);
       }
-
       &.controlStop {
-        transform: translate(-47%, -60%);
+        transform: translate(-50%, -65%);
       }
     }
 

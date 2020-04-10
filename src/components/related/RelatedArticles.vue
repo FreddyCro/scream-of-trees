@@ -71,7 +71,7 @@ export default {
 @import "~/style/_mixins.scss";
 .related-articles {
   position: relative;
-  margin: 120px 0;
+  margin-bottom: 120px;
   .related-articles__main-title {
     width: 100%;
     display: flex;
