@@ -24,13 +24,13 @@
 </template>
 
 <script>
-import { autoResize_3 } from "@/mixins/masterBuilder.js";
+import { autoResize_3, sendGaMethods } from "@/mixins/masterBuilder.js";
 
 const row = { mob: 5, pad: 7, pc: 11 };
 
 export default {
   name: 'ImageGallery',
-  mixins: [autoResize_3],
+  mixins: [autoResize_3, sendGaMethods],
   computed: {
     currentSlide() {
       return this.$store.state.currentSlide || 1;

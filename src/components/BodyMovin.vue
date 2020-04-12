@@ -30,6 +30,11 @@ export default {
     },
     offset: {
       tpye: Number,
+      default: 2000,
+    },
+    index: {
+      tpye: Number,
+      default: 0,
     }
   },
   data() {
@@ -41,9 +46,10 @@ export default {
     acitve: {
       handler(value) {
         if (value) {
+          this.bm.goToAndStop(0);
           setTimeout(() => {
             this.bm.goToAndPlay(0);
-          }, this.offset + 1000);
+          }, this.offset * this.index);
         }
       }
     }
@@ -53,7 +59,7 @@ export default {
       container: document.getElementById(`body-movin-${this.name}`),
       renderer: "svg",
       loop: this.loop,
-      autoplay: true,
+      autoplay: false,
       path: this.src,
       name: this.name
     });

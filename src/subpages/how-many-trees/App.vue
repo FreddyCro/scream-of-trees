@@ -81,11 +81,6 @@
         <p><br></p>
         <h4>台灣海岸線退縮情形</h4>
         <CoastMap />
-        <ArticleColumnOne
-          :srcMob="require('~/img/how-many-trees/slide_4/chart_mob.svg')"
-          :srcPad="require('~/img/how-many-trees/slide_4/chart_pc.svg')"
-          :srcPc="require('~/img/how-many-trees/slide_4/chart_pc.svg')"
-        />
       </div>
     </SlideCard>
     <SlideCard

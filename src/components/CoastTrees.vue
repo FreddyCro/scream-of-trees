@@ -4,26 +4,29 @@
       <div class="coast-trees__body-movin-container">
         <BodyMovin
           name="trees2015"
-          src="./how-many-trees/trees/2015/data.json"
+          :src="rootUrl + 'how-many-trees/trees/2015/data.json'"
           :loop="false"
           autoplay
-          :offset="offsetList[0]"
+          :index="0"
+          :offset="delayOffset"
           :acitve="isEnter"
         />
         <BodyMovin
           name="trees2017"
-          src="./how-many-trees/trees/2017/data.json"
+          :src="rootUrl + 'how-many-trees/trees/2017/data.json'"
           :loop="false"
           autoplay
-          :offset="offsetList[1]"
+          :index="1"
+          :offset="delayOffset"
           :acitve="isEnter"
         />
         <BodyMovin
           name="trees2019"
-          src="./how-many-trees/trees/2019/data.json"
+          :src="rootUrl + 'how-many-trees/trees/2019/data.json'"
           :loop="false"
           autoplay
-          :offset="offsetList[2]"
+          :index="2"
+          :offset="delayOffset"
           :acitve="isEnter"
         />
       </div>
@@ -32,8 +35,24 @@
       </div>
     </div>
     <div class="coast-trees__info">
-      <div class="coast-trees__info__year"><span class="coast-trees__info__year__digit">2019</span>年</div>
-      <div class="coast-trees__info__trees"><span class="coast-trees__info__trees__digit">109850</span>棵樹</div>
+      <div
+        v-for="(item, index) in yearList"
+        :key="index"
+        :class="{
+          'coast-trees__info__item': true,
+          'coast-trees__info__item--active': currentIndex === index
+        }" 
+        :style="{
+          transform: coastTreesInfoTranslate,
+        }"
+      >
+        <div class="coast-trees__info__item__year">
+          <span class="coast-trees__info__item__year__digit">{{item.year}}</span>年
+        </div>
+        <div class="coast-trees__info__item__trees">
+          <span class="coast-trees__info__item__trees__digit">{{item.trees}}</span>棵樹
+        </div>
+      </div>
     </div>
     <div class="coast-trees__source"><p class="small">資料來源：慈心有機農業發展基金會提供</p></div>
   </div>
@@ -51,24 +70,34 @@ export default {
     return {
       ticking: false,
       isEnter: false,
+      rootUrl: document.querySelector('meta[property="main-page"]').content,
+      currentIndex: 0,
       yearList: [
         { year: 2015, trees: 7000 },
         { year: 2017, trees: 100931 },
         { year: 2019, trees: 109850 },
       ],
+      delayOffset: 2000,
+      interval: null,
       /*
         樹的秒數
         2015年 : 01:09 秒
         2017年 : 00:24 秒
         2019年 : 02:14 秒
        */
-      offsetList: [0, 1.09, 1.33],
+      // offsetList: [0, 1.09, 1.33],
     };
+  },
+  computed: {
+    coastTreesInfoTranslate() {
+      return 'translateX(' + this.currentIndex * (-100) + '%)';
+    }
   },
   watch: {
     isEnter: {
       handler(value) {
-        // TODO: play infos
+        if (value) this.handleEnterTrees();
+        else this.handleLeaveTrees();
       }
     }
   },
@@ -97,6 +126,16 @@ export default {
       }
       this.ticking = true;
     }, 30),
+    handleEnterTrees() {
+      this.interval = setInterval(() => {
+        this.currentIndex++;
+        if (this.currentIndex >= 2) clearInterval(this.interval);
+      }, this.delayOffset);
+    },
+    handleLeaveTrees() {
+      this.currentIndex = 0;
+      clearInterval(this.interval);
+    },
   },
   mounted() {
     document.addEventListener('scroll', this.handleScroll, true);
@@ -115,22 +154,42 @@ export default {
   padding-top: 138.9%;
   .coast-trees__info {
     position: absolute;
+    overflow: hidden;
     top: 0;
     left: 0;
-    .coast-trees__info__year {
-      .coast-trees__info__year__digit {
-        font-size: 22px;
-        @include pc {
-          font-size: 30px;
+    width: 150px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    @include pc {
+      width: 200px;
+    }
+    .coast-trees__info__item {
+      flex-shrink: 0;
+      width: 150px;
+      opacity: 0;
+      transition: 0.666s ease-in-out;
+      @include pc {
+        width: 200px;
+      }
+      &.coast-trees__info__item--active {
+        opacity: 1;
+      }
+      .coast-trees__info__item__year {
+        .coast-trees__info__item__year__digit {
+          font-size: 22px;
+          @include pc {
+            font-size: 30px;
+          }
         }
       }
-    }
-    .coast-trees__info__trees {
-      color: #9bd200;
-      .coast-trees__info__trees__digit {
-        font-size: 32px;
-        @include pc {
-          font-size: 50px;
+      .coast-trees__info__item__trees {
+        color: #9bd200;
+        .coast-trees__info__item__trees__digit {
+          font-size: 32px;
+          @include pc {
+            font-size: 50px;
+          }
         }
       }
     }
