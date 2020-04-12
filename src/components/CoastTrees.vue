@@ -65,6 +65,13 @@ export default {
       offsetList: [0, 1.09, 1.33],
     };
   },
+  watch: {
+    isEnter: {
+      handler(value) {
+        // TODO: play infos
+      }
+    }
+  },
   methods: {
     handleSlideEvent() {
       const coastTrees = document.getElementById('coast-trees');
@@ -73,13 +80,10 @@ export default {
       if (checkInto) {
         if (!this.isEnter) {
           this.isEnter = true;
-          console.log(this.isEnter);
-          
         }
       } else {
         if (this.isEnter) {          
           this.isEnter = false;
-          console.log(this.isEnter);
         }
       }
     },

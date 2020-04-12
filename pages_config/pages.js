@@ -1,13 +1,18 @@
-const monitorCode = require("./monitor.js");
-const authorContent = require("./seo_content/author.js");
-const screamOfTreesContent = require("./seo_content/scream-of-trees.js");
-const noChanceContent = require("./seo_content/no-chance-to-grow.js");
-const howManyTreesContent = require("./seo_content/how-many-trees.js");
-const growUpHealthily = require("./seo_content/grow-up-healthily.js");
+const contentGenerator = require('./contentGenerator.js')
+
+/* seo內容文件 */
+const monitorCode = contentGenerator('./seo_content/monitor.html');
+const authorContent = contentGenerator('./seo_content/author.html');
+const screamOfTreesContent = contentGenerator('./seo_content/scream-of-trees.html');
+const noChanceToGrowContent = contentGenerator('./seo_content/no-chance-to-grow.html');
+const howManyTreesContent = contentGenerator('./seo_content/how-many-trees.html');
+const growUpHealthily = contentGenerator('./seo_content/grow-up-healthily.html');
 
 /* 正式路徑 */
 // const pathRoot = process.env.NODE_ENV === 'production' ? 'https://udn.com/newmedia/2020/scream-of-trees/' : './';
+/* 測試路徑 */
 const pathRoot = process.env.NODE_ENV === 'production' ? 'https://nmdap.udn.com.tw/test/scream-of-trees/' : 'http://localhost:8080/';
+
 const noChanceToGrow_path = 'no-chance-to-grow/';
 const howManyTrees_path = 'how-many-trees/';
 const growUpHealthily_path = 'grow-up-healthily/';
@@ -44,7 +49,7 @@ module.exports = {
       datePublished: '2020-04-22 T12:00:00+08:00',
       dateModified: '2020-04-23 T12:00:00+08:00',
       MONITOR: monitorCode,
-      CONTENT: noChanceContent + authorContent,
+      CONTENT: noChanceToGrowContent + authorContent,
       pageUrl: pathRoot + noChanceToGrow_path,
       publicPath: pathRoot,
     },

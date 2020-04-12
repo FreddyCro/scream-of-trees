@@ -15,12 +15,11 @@ export default {
 @import "~/style/_mixins.scss";
 .series-title {
   position: absolute;
-  left: 0;
+  left: 35%;
   top: 0;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  padding-left: 25%;
   margin-bottom: 125px;
   transform: translateY(-150%);
   span {

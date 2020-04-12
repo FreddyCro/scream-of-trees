@@ -41,7 +41,9 @@ export default {
     acitve: {
       handler(value) {
         if (value) {
-          this.bm.goToAndPlay(0);
+          setTimeout(() => {
+            this.bm.goToAndPlay(0);
+          }, this.offset + 1000);
         }
       }
     }

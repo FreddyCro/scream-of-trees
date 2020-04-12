@@ -61,7 +61,7 @@ export default {
   transform: translateY(-100%);
   @include pc {
     left: 0%;
-    transform: translateY(-115%);
+    transform: translateY(-105%);
   }
   h1 {
     font-family: source-han-serif-tc;
