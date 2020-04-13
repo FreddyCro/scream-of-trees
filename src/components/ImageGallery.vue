@@ -49,15 +49,15 @@ export default {
   methods: {
     handleImgSrc(index) {
       const FOLDER = this.$store.state.folder;
-      function center() {
-        return 'url(' + require(`~/img/${FOLDER}/slide_3/pad.jpg`) + ')';
+      function center(device) {
+        return 'url(' + require(`~/img/${FOLDER}/slide_3/${device}.jpg`) + ')';
       }
       function other() {
         const USE_IMG = index % 50 + 1;
         return 'url(' + require(`~/img/${FOLDER}/gallery/${USE_IMG}.jpg`) + ')';
       }
 
-      if (index === this.centerImageIndex) return center();
+      if (index === this.centerImageIndex) return center(this.deviceType);
       return other();
     }
   },
@@ -107,12 +107,12 @@ export default {
     }
   }
   &.image-gallery--zoom-layer-3 {
-    transform: scale(11);
+    transform: scale(10.5);
     @include pad {
       transform: scale(11.5);
     }
     @include pc {
-      transform: scale(15);
+      transform: scale(11);
     }
   }
 }
@@ -124,6 +124,7 @@ export default {
   padding-top: 20%;
   border: 1px solid #000000;
   background-size: cover;
+  background-position: center;
   @include pad {
     width: 14.28%;
     padding-top: 14.28%;

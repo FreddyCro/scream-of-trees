@@ -11,14 +11,13 @@ export default new Vuex.Store({
     slideAmount: 20,
     script: [
       {
-        type: "v",
+        type: "i",
         trigger: 1,
-        videoPath: "/slide_1/",
-        posterPath: "/slide_1/",
-        imagePath: null,
-        hasTablet: false,
+        videoPath: null,
+        posterPath: null,
+        imagePath: "/slide_1/",
+        hasTablet: true,
         videoController: false,
-        slowMotion: 0.6,
         squareType: false,
       },
       {
@@ -285,7 +284,7 @@ export default new Vuex.Store({
     videoStatus: {
       controllerActive: false,
       isMuted: true,
-      isPlay: true,
+      isPlay: false,
       totalTime: 0,
       currentTime: 0,
     },

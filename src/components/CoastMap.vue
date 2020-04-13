@@ -176,7 +176,11 @@ export default {
   methods: {
     handleCityClick(cityId) {
       this.currentCity = cityId;
-      this.sendGA({});
+      this.sendGA({
+        category: 'map',
+        action: 'click',
+        label: this.cityInfo[cityId].name
+      });
     },
   },
 };

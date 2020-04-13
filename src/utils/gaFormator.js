@@ -39,6 +39,11 @@ const gaTable = {
     action: 'click',
     label: '圓形聯logo'
   },
+  HeaderVisionLogo: {    
+    category: 'logo',
+    action: 'click',
+    label: 'header_願景logo'
+  },
   CoverArrow: {
     category: 'arrow',
     action: 'click',

@@ -10,7 +10,11 @@
       rel="noopener"
       :ariaLabel="data.title"
       :title="data.title"
-      @click="sendGA({})"
+      @click="sendGA({
+        category: 'related',
+        action: 'click',
+        label: data.title
+      })"
     >
       <div class="link__body__image">
         <img :src="imgPath" :alt="data.title" />

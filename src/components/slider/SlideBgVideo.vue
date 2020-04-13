@@ -20,8 +20,11 @@
 </template>
 
 <script>
+import { sendGaMethods } from "@/mixins/masterBuilder.js";
+
 export default {
   name: "SlideBgVideo",
+  mixins: [sendGaMethods],
   props: {
     posterSrc: {
       type: String,
@@ -52,6 +55,12 @@ export default {
       default: 0
     },
   },
+  data() {
+    return {
+      gaStageTime: 3,
+      gaStageGap: 3,
+    };
+  },
   computed: {
     videoActive() {
       return this.trigger === this.$store.state.currentSlide;
@@ -67,13 +76,26 @@ export default {
   methods: {
     handleUpdateVideoTime(video) {
       video.ontimeupdate = (e) => {
-        if (!this.$store.state.videoStatus.controllerActive) ;
+        if (!this.$store.state.videoStatus.controllerActive) return ;
+        this.handleProgressGA(e.target.currentTime, e.target.duration);
         this.$store.dispatch('updateVideoTime', {
           currentTime: e.target.currentTime,
           totalTime: e.target.duration
         });
       }
-    }
+    },
+    handleProgressGA(currentTime, duration) {
+      if (currentTime < 1) this.gaStageTime = this.gaStageGap;
+      if (currentTime > this.gaStageTime) {
+        this.sendGA({
+          category: 'video',
+          action: 'autoplay',
+          label: `autoplay_slide-${this.$store.state.currentSlide}觀看${this.gaStageTime}秒`
+        })
+
+        this.gaStageTime += this.gaStageGap ;
+      }
+    },
   },
   mounted() {
     const video = document.getElementById(`video-${this.trigger}`);

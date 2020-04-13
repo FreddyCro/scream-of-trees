@@ -13,11 +13,11 @@
       <nav class="header-bar__nav">
         <div
           class="header-bar__logo"
-          @click="sendGA(formatGA('HeaderUdnLogo'))"
+          @click="sendGA(formatGA('HeaderVisionLogo'))"
         >
           <a
-            :href="href"
-            target="_self"
+            href="https://vision.udn.com/"
+            target="_blank"
             rel="noopener"
             aria-label="聯logo"
             name="聯logo"

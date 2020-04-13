@@ -4,11 +4,12 @@ function resolve (dir) {
 }
 const pagesConfig = require("./pages_config/pages.js");
 const publicPath = pagesConfig.publicPath
+const pages = pagesConfig.pages
 
 module.exports = {
-  publicPath: publicPath,
+  publicPath,
   productionSourceMap: false,
-  pages: pagesConfig.pages,
+  pages,
   chainWebpack: config => {
     config.module.rules.delete('eslint');
     config.resolve.alias

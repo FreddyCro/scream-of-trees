@@ -10,6 +10,11 @@
         aria-label="share-fb"
         title="share-fb"
         :class="{ active: item.menu.self }"
+        @click="sendGA({
+          category: 'menu',
+          action: 'click',
+          label: item.title
+        })"
       >
         {{item.title}}
       </a>
@@ -109,6 +114,8 @@
 </template>
 
 <script>
+import { sendGaMethods } from '@/mixins/masterBuilder.js';
+
 import ImageGallery from '@/components/ImageGallery.vue';
 import FooterEditor from '@/components/footer/FooterEditor.vue';
 import FooterFbComment from '@/components/footer/FooterFbComment.vue';
@@ -125,6 +132,7 @@ import SlideCard from '@/components/slider/SlideCard.vue';
 
 export default {
   name: 'App',
+  mixins: [sendGaMethods],
   components: {
     ImageGallery,
     FooterEditor,

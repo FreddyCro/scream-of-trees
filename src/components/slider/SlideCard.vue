@@ -31,13 +31,13 @@
         v-if="$store.state.useVideoControl"
         :class="{
           'slide-bg-video__controller': true,
-          'slide-bg-video__controller--active': $store.state.videoStatus.controllerActive,
+          'slide-bg-video__controller--active': controllerActive,
         }"
       >
-        <div class="slide-bg-video__controller__button" @click="$store.dispatch('updateVideoMute')">
+        <div class="slide-bg-video__controller__button" @click="handleMutedClick">
           <VideoMuted :isMuted="$store.state.videoStatus.isMuted" />
         </div>
-        <div class="slide-bg-video__controller__button" @click="$store.dispatch('updateVideoPlay')">
+        <div class="slide-bg-video__controller__button" @click="handlePlayClick">
           <VideoDuration
             :currentTime="$store.state.videoStatus.currentTime"
             :totalTime="$store.state.videoStatus.totalTime"
@@ -50,11 +50,14 @@
 </template>
 
 <script>
+import { sendGaMethods } from "@/mixins/masterBuilder.js";
+
 import VideoDuration from '@/components/VideoDuration';
 import VideoMuted from '@/components/VideoMuted';
 
 export default {
   name: 'SlideCard',
+  mixins: [sendGaMethods],
   components: {
     VideoDuration,
     VideoMuted
@@ -80,12 +83,17 @@ export default {
     noText: {
       type: Boolean,
       default: false,
-    }
+    },
   },
   data() {
     return {
       ticking: false
     };
+  },
+  computed: {
+    controllerActive() {
+      return this.$store.state.videoStatus.controllerActive && this.$store.state.currentSlide === +this.index;
+    }
   },
   methods: {
     handleSlideEvent() {
@@ -107,7 +115,23 @@ export default {
         });
       }
       this.ticking = true;
-    }
+    },
+    handleMutedClick() {
+      this.sendGA({
+        category: 'video',
+        action: 'click',
+        label: `sound slide-${this.index}`
+      });
+      this.$store.dispatch('updateVideoMute');
+    },
+    handlePlayClick() {
+      this.sendGA({
+        category: 'video',
+        action: 'click',
+        label: `pause slide-${this.index}`
+      });
+      this.$store.dispatch('updateVideoPlay');
+    },
   },
   mounted() {
     document.addEventListener('scroll', this.handleScroll, true);
