@@ -14,12 +14,20 @@
     >
       <div
         v-for="(item, index) in imageAmount"
-        :key="index" class="image-gallery__image-item"
+        :key="index"
+        class="image-gallery__image-item"
         :style="{
           backgroundImage: handleImgSrc(index)
         }"
       />
     </div>
+    <div
+      :class="{
+        'image-gallery__focus': true,
+        'image-gallery__focus--active': currentSlide <= $store.state.galleryScript[0],
+      }"
+      :style="{ backgroundImage: handleImgSrc(centerImageIndex) }"
+    />
   </div>
 </template>
 
@@ -50,9 +58,11 @@ export default {
   methods: {
     handleImgSrc(index) {
       const FOLDER = this.$store.state.folder;
-      function center(device) {
+      // function center(device) {
+      //   return 'url(' + require(`~/img/${FOLDER}/slide_3/${device}.jpg`) + ')';
+      // }
+      function center() {
         return 'url(' + require(`~/img/${FOLDER}/slide_3/sqr.jpg`) + ')';
-        // return 'url(' + require(`~/img/${FOLDER}/slide_3/${device}.jpg`) + ')';
       }
       function other() {
         const USE_IMG = index % 49 + 1;
@@ -140,7 +150,7 @@ export default {
   @include pc {
     width: 105%;
     left: -2.5%;
-    transform-origin: 50% 24.5vw;
+    transform-origin: 50% 23.25vw;
   }
   &.image-gallery--zoom-layer-1 {
     transform: scale(1);
@@ -180,6 +190,24 @@ export default {
   @include pc {
     width: 9.08%;
     padding-top: 9.08%;
+  }
+}
+.image-gallery__focus {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(0.3);
+  transform-origin: 50% 30%;
+  transition: .5s .222s ease-in-out;
+  &.image-gallery__focus--active {
+    opacity: 1;
+    transform: scale(1.05);
+    transition: .5s ease-in-out;
   }
 }
 </style>
