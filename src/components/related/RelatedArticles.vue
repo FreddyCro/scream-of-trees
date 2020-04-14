@@ -3,8 +3,8 @@
     <div v-if="this.$store.state.isMainPage" class="related-articles__main-title">
       系列報導
     </div>
-    <Swiper ref="swiperRef" :options="swiperOption">
-      <SwiperSlide
+    <swiper ref="swiperRef" :options="swiperOption">
+      <swiperSlide
         v-for="(item, index) in articleList"
         :key="index"
       >
@@ -13,28 +13,28 @@
           :linkIndex="index"
           :currentIndex="activeIndex"
         />
-      </SwiperSlide>
+      </swiperSlide>
       <div
         v-if="deviceType !== 'pc'"
         class="swiper-pagination"
         slot="pagination"
       />
-    </Swiper>
+    </swiper>
   </div>
 </template>
 
 <script>
 import Link from '@/components/related/Link.vue';
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import 'swiper/css/swiper.css'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
 import { autoResize_3 } from '@/mixins/masterBuilder.js';
 
 export default {
   name: 'RelatedArticles',
   components: {
     Link,
-    Swiper,
-    SwiperSlide
+    swiper,
+    swiperSlide,
   },
   mixins: [autoResize_3],
   data() {

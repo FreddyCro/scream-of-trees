@@ -31,8 +31,8 @@ export default {
   @include clean-tap;
   .icon-wrapper {
     .stat-circle {
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
       transform: rotate(-90deg);
       circle.bg {
         fill: none;
@@ -58,7 +58,7 @@ export default {
     .controlIcon {
       position: absolute;
       width: 40%;
-      height: 16px;
+      height: 20px;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -65%);

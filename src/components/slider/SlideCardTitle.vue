@@ -1,5 +1,9 @@
 <template>
-  <div class="slide-card-title">
+  <div :class="{
+    'slide-card-title': true,
+    'slide-card-title--right': titleRight === true
+    }"
+  >
     <div v-if="isMain" class="slide-card-title__main">
       <h1>
         <span class="first">
@@ -46,6 +50,10 @@ export default {
     second: {
       type: String,
       default: null,
+    },
+    titleRight: {
+      type: Boolean,
+      default: false,
     }
   }
 }
@@ -63,12 +71,19 @@ export default {
     left: 0%;
     transform: translateY(-105%);
   }
+  &.slide-card-title--right {
+    @include pc {
+      left: auto;
+      right: 20%;
+    }
+  }
   h1 {
     font-family: source-han-serif-tc;
     line-height: 0.8;
     display: inline;
     writing-mode: vertical-rl;
     letter-spacing: 1.5rem;
+    white-space: nowrap;
   }
   h2 {
     font-family: source-han-serif-tc;
@@ -76,6 +91,7 @@ export default {
     display: inline;
     writing-mode: vertical-rl;
     letter-spacing: 1rem;
+    white-space: nowrap;
   }
   span {
     white-space: pre-wrap;
@@ -96,6 +112,7 @@ export default {
       display: flex;
       align-items: center;
       height: 100%;
+      white-space: nowrap;
       .first__content {
         flex-shrink: 0;
         display: block;
@@ -103,6 +120,7 @@ export default {
     }
     &.second {
       display: inline-block;
+      white-space: nowrap;
       min-height: 350px;
       @include pc {
         min-height: 450px;
@@ -119,7 +137,8 @@ export default {
   min-height: 100%;
 }
 .slide-card-title__main {
-  margin-bottom: 350px;
+  // margin-bottom: 350px;
+  margin-bottom: 275px;
   @include smob {
     margin-bottom: 270px;
   }

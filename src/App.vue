@@ -4,7 +4,7 @@
       <a
         v-for="(item, index) in articleList"
         :key="index"
-        :href="mainPage + item.url"
+        :href="item.outlink ? item.url : mainPage + item.url"
         target="_blank"
         rel="noopener"
         aria-label="share-fb"
@@ -26,7 +26,7 @@
       index="1"
       type="small"
     >
-      <p slot="article">為什麼森林的樹高大挺拔<br>我們種的樹卻歪七扭八？</p>
+      <p class="p--first" slot="article">為什麼森林的樹高大挺拔<br>我們種的樹卻歪七扭八？</p>
     </SlideCard>
     <SlideCard
       index="2"
@@ -79,7 +79,7 @@
           </div>
           <div>
             <p>影像</p>
-            <p>許正宏、陳正興、<br>林澔一、劉學聖、<br>杜建重、<br>聯合報系願景工作室、<br>聯合報系資料庫、<br>廖偉健攀樹師、<br>慈心有機農業發展基金會</p>
+            <p>許正宏、陳正興、<br>林澔一、劉學聖、<br>聯合報系願景工作室、<br>聯合報系資料庫、<br>廖偉健攀樹師、<br>慈心有機農業發展基金會</p>
           </div>
           <div>
             <p>設計</p>
@@ -160,3 +160,17 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+@import "~/style/_mixins.scss";
+.series-title {
+  transform: translateY(-150%) !important;
+}
+.p--first {
+  font-size: 1.35rem;
+  padding: 15px 15px;
+  @include pc {
+    font-size: 2.5rem;
+  }
+}
+</style>

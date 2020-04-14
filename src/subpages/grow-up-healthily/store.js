@@ -260,7 +260,7 @@ export default new Vuex.Store({
       {
         title: "願景工程系列專題",
         imgSrc: "relate_4",
-        url: "https://vision.udn.com/",
+        url: "https://vision.udn.com/vision/cate/121020",
         menu: {
           active: true,
           self: false,

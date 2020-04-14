@@ -85,7 +85,15 @@ export default {
         pad: require(`~/img/${ROOT}` + (this.hasTabletSrc ? `pad${FILE}` : `mob${FILE}`)),
         pc: require(`~/img/${ROOT}pc${FILE}`)
       };
-      
+      return this.selectSrc_3(SRC.mob, SRC.pad, SRC.pc);
+    },
+    handleVideoSrc(path) {
+      const ROOT = `${this.$store.state.folder}${path}`;
+      const SRC = {
+        mob: `https://p3.udn.com.tw/${ROOT}mob.mp4`,
+        pad: `https://p3.udn.com.tw/${ROOT}` + (this.hasTabletSrc ? `pad.mp4` : `mob.mp4`),
+        pc: `https://p3.udn.com.tw/${ROOT}pc.mp4`
+      };
       return this.selectSrc_3(SRC.mob, SRC.pad, SRC.pc);
     },
   }

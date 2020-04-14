@@ -162,7 +162,7 @@ export default {
     justify-content: flex-start;
     align-items: center;
     @include pc {
-      width: 200px;
+      width: 225px;
     }
     .coast-trees__info__item {
       flex-shrink: 0;
@@ -170,7 +170,7 @@ export default {
       opacity: 0;
       transition: 0.666s ease-in-out;
       @include pc {
-        width: 200px;
+        width: 225px;
       }
       &.coast-trees__info__item--active {
         opacity: 1;

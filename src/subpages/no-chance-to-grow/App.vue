@@ -90,7 +90,7 @@
         />
         <SlideCardQuote>
           <h3 slot="text">「如果把小狗、小貓養在過小的籠子裡，我們會不忍心，為什麼我們卻常把樹種在過小的空間裡呢？」</h3>
-          <p slot="name">>─台大森林環境暨資源學系副教授邱祈榮</p>
+          <p slot="name">─台大森林環境暨資源學系副教授邱祈榮</p>
         </SlideCardQuote>
         <p>邱祈榮表示，選對樹種、種對地點、好的栽種方式、後續養護完善‧‧‧要把樹種好，每一個環節都不能少，但在台灣，民眾常給樹過小的生長空間，或把樹種在不適合的環境中，導致許多樹木不是壽命短促，就是僅能苟延殘喘的活著。</p>
         <p>《聯合報》整理常見的錯誤種樹方式，希望在未來，更多的樹都能健健康康長大。</p>
@@ -154,7 +154,7 @@
         <SlideCardTitle
           first="窒息樹"
         />
-        <p>廠商為了美觀，常會在樹穴中種植灌木或複層植栽，但種植灌木時，至少會在樹穴中再覆蓋15至20公分的沃土，多覆蓋的土讓常蓋過樹木根領，導致樹木窒息、死亡。</p>
+        <p>廠商為了美觀，常會在樹穴中種植灌木或複層植栽，但種植灌木時，至少會在樹穴中再覆蓋15至20公分的沃土，多覆蓋的土壤常蓋過樹幹和樹根交接的根領處，導致樹木窒息、死亡。</p>
         <p>此外，灌木的根系也會與樹木的根系競爭水分、養分，導致樹勢衰弱。</p>
         <ArticleColumnOne
           :srcMob="require('~/img/no-chance-to-grow/slide_8/chart_mob.svg')"
@@ -174,10 +174,10 @@
         />
         <p>若看到樹木遭受不當對待，可以怎麼做呢？《聯合報》整理了樹木通報、救援專線及關心樹木的民間組織資訊，邀請你一同加入守護樹木行列：</p>
         <p><span class="green-text">公家單位</span><br>若發現危木，或有路樹相關問題，可至各縣市1999市民服務平台，選擇「路樹」項目，通報相關案例。</p>
-        <p><span class="green-text">民間單位</span><br><span class="green-underline">台灣老樹救援協會：</span>協助台灣各地老樹進行救援、養護等保育工作，若遇到老樹遭受不當對待，可至協會網頁填寫<span class="green-underline">公益老樹救援相關表單</span></p>
-        <p><span class="green-underline">台灣都市林健康美化協會：</span>致力強化都市內公有及私有樹木之管理，以發揮都市林的環境效益。</p>
-        <p><span class="green-underline">台灣護樹協會：</span>致力守護台灣各地的樹木，審視公部門對待樹木的態度。</p>
-        <p><span class="green-underline">高雄。愛樹人：</span>關注高雄樹木的護樹團體。</p>
+        <p><span class="green-text">民間單位</span><br><a href="http://oldtree119.org/" target="_blank" class="green-underline">台灣老樹救援協會：</a>協助台灣各地老樹進行救援、養護等保育工作，若遇到老樹遭受不當對待，可至協會網頁填寫<a href="http://oldtree119.org/reciprocation.html" target="_blank" class="green-underline">公益老樹救援相關表單</a></p>
+        <p><a href="http://www.twas.org.tw/index.php" target="_blank" class="green-underline">台灣都市林健康美化協會：</a>致力強化都市內公有及私有樹木之管理，以發揮都市林的環境效益。</p>
+        <p><a href="https://www.dodolovetree.org.tw/Client/P01.aspx?MenuItem=I1511618202451000000" target="_blank" class="green-underline">台灣護樹協會：</a>致力守護台灣各地的樹木，審視公部門對待樹木的態度。</p>
+        <p><a href="https://www.facebook.com/twlovetree/" target="_blank" class="green-underline">高雄。愛樹人：</a>關注高雄樹木的護樹團體。</p>
       </div>
     </SlideCard>
     <SlideCard
@@ -201,7 +201,7 @@
           </div>
           <div>
             <p>影像</p>
-            <p>許正宏、陳正興、<br>林澔一、劉學聖、<br>杜建重、<br>聯合報系願景工作室、<br>聯合報系資料庫、<br>廖偉健攀樹師、<br>慈心有機農業發展基金會</p>
+            <p>許正宏、陳正興、<br>林澔一、劉學聖、<br>聯合報系願景工作室、<br>聯合報系資料庫、<br>廖偉健攀樹師、<br>慈心有機農業發展基金會</p>
           </div>
           <div>
             <p>設計</p>

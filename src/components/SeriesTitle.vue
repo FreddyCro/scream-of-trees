@@ -21,17 +21,17 @@ export default {
   justify-content: flex-start;
   align-items: flex-start;
   margin-bottom: 125px;
-  transform: translateY(-150%);
+  transform: translateY(-100%);
   span {
     display: inline-block;
     line-height: 1;
     font-weight: 100;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
-    transform: scale(0.5, 10);
+    transform: scale(1, 10);
     transform-origin: 50% 0;
     @include pc {
-      transform: scale(0.5, 15);
+      transform: scale(1, 15);
     }
   }
   h1 {

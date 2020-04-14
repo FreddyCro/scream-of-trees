@@ -176,7 +176,7 @@ export default {
     .article {
       display: inline-block;
       width: auto;
-      max-width: 80%;
+      max-width: 90%;
       padding: 24px 32px;
       background-color: rgba($color: #000000, $alpha: 0.78);
     }
@@ -221,7 +221,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 72px;
+    width: 90px;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity .333s ease-in-out;

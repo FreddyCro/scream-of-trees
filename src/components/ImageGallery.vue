@@ -40,7 +40,8 @@ export default {
     },
     imageAmount() {
       const ratio = window.innerHeight / window.innerWidth;
-      return Math.ceil(Math.pow(row[this.deviceType], 2) * ratio) + row[this.deviceType];
+      
+      return Math.ceil(Math.pow(row[this.deviceType] + 1, 2) * ratio) + row[this.deviceType] * 2;
     },
     centerImageIndex() {
       return Math.floor(row[this.deviceType] * 2.5);
@@ -50,10 +51,11 @@ export default {
     handleImgSrc(index) {
       const FOLDER = this.$store.state.folder;
       function center(device) {
-        return 'url(' + require(`~/img/${FOLDER}/slide_3/${device}.jpg`) + ')';
+        return 'url(' + require(`~/img/${FOLDER}/slide_3/sqr.jpg`) + ')';
+        // return 'url(' + require(`~/img/${FOLDER}/slide_3/${device}.jpg`) + ')';
       }
       function other() {
-        const USE_IMG = index % 50 + 1;
+        const USE_IMG = index % 49 + 1;
         return 'url(' + require(`~/img/${FOLDER}/gallery/${USE_IMG}.jpg`) + ')';
       }
 
@@ -78,6 +80,52 @@ export default {
     opacity: 1;
   }
 }
+// .image-gallery {
+//   will-change: transform;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   overflow: hidden;
+//   width: 1110%;
+//   height: 1110%;
+//   transform-origin: 0 0;
+//   transition: .666s ease-in-out;
+//   @include pad {
+//     width: 1150%;
+//     height: 1150%;
+//   }
+//   @include pc {
+//     width: 1200%;
+//     height: 1200%;
+//   }
+//   &.image-gallery--zoom-layer-1 {
+//     transform: scale(0.095) translate(-50%, -50%);
+//     @include pad {
+//       transform: scale(0.105) translate(-50%, -45%);
+//     }
+//     @include pc {
+//       transform: scale(0.115) translate(-50%, -45%);
+//     }
+//   }
+//   &.image-gallery--zoom-layer-2 {
+//     transform: scale(0.155) translate(-50%, -35%);
+//     @include pad {
+//       transform: scale(0.185) translate(-50%, -32%);
+//     }
+//     @include pc {
+//       transform: scale(0.195) translate(-50%, -42%);
+//     }
+//   }
+//   &.image-gallery--zoom-layer-3 {
+//     transform: scale(1) translate(-50%, -558vw);
+//     @include pad {
+//       transform: scale(1) translate(-50%, -405vw);
+//     }
+//     @include pc {
+//       transform: scale(1) translate(-50%, -275vw);
+//     }
+//   }
+// }
 .image-gallery {
   will-change: transform;
   position: relative;

@@ -53,8 +53,8 @@ export default {
   @include clean-tap;
   .loading {
     .stat-circle {
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
       transform: rotate(-90deg);
       circle.bg {
         fill: none;
@@ -83,7 +83,7 @@ export default {
     .controlIcon {
       position: absolute;
       width: 50%;
-      height: 16px;
+      height: 20px;
       top: 50%;
       left: 50%;
       opacity: 0.8;

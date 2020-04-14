@@ -30,12 +30,14 @@ export default {
   }
   h3, p {
     font-family: source-han-serif-tc;
+    margin: 0;
   }
 }
 .slide-card-quot__text {
   h3 {
     text-align: left;
     color: #ffffff;
+    line-height: 1.57;
   }
 }
 .slide-card-quot__name {
