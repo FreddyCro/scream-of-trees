@@ -32,25 +32,25 @@
       index="2"
       type="small"
     >
-      <p slot="article">我們拚命種樹<br>卻種出許多處境悲慘的樹</p>
+      <p class="p--first" slot="article">我們拚命種樹<br>卻種出許多處境悲慘的樹</p>
     </SlideCard>
     <SlideCard
       index="3"
       type="small"
     >
-      <p slot="article">斷頭樹、殘障樹、尿布樹...</p>
+      <p class="p--first" slot="article">斷頭樹、殘障樹、尿布樹...</p>
     </SlideCard>
     <SlideCard
       index="4"
       type="small"
     >
-      <p slot="article">在這些樹身上<br>看不到樹該有的樣貌</p>
+      <p class="p--first" slot="article">在這些樹身上<br>看不到樹該有的樣貌</p>
     </SlideCard>
     <SlideCard
       index="5"
       type="small"
     >
-      <p slot="article">卻看到他們用殘破的身軀<br>訴說一個又一個令人痛心的遭遇</p>
+      <p class="p--first" slot="article">卻看到他們用殘破的身軀<br>訴說一個個令人痛心的遭遇</p>
     </SlideCard>
     <SlideCard
       index="6"
@@ -168,9 +168,8 @@ export default {
 }
 .p--first {
   font-size: 1.35rem;
-  padding: 15px 15px;
   @include pc {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 }
 </style>
