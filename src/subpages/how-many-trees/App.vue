@@ -4,7 +4,7 @@
       <a
         v-for="(item, index) in articleList"
         :key="index"
-        :href="mainPage + item.url"
+        :href="item.outlink ? item.url : mainPage + item.url"
         target="_blank"
         rel="noopener"
         aria-label="share-fb"
@@ -25,7 +25,7 @@
       index="1"
       type="responsive"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <SlideCardTitle
           :isMain="true"
           first="台灣還要"
@@ -53,7 +53,7 @@
       index="2"
       type="responsive"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <SlideCardTitle
           first="國外拚命種樹"
           second="台灣還在與樹爭地"
@@ -68,7 +68,7 @@
       index="3"
       type="responsive"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <SlideCardTitle
           first="種樹救海岸線"
         />
@@ -80,7 +80,7 @@
       index="4"
       type="responsive"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <p>據中央地質調查所調查，1978年到2009年間，全台多處海岸退縮100到650公尺。</p>
         <p>台灣本島的人工海岸線比例高達56.29%，海岸土地過度開發、海岸線嚴重人工化、海平面上升均是衝擊台灣海岸線的因素。海岸線退縮不僅危害國土保安，也威脅民眾生命財產安全。</p>
         <p><br></p>
@@ -92,7 +92,7 @@
       index="5"
       type="responsive"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <p>這一天，用種樹守護台灣海岸線的慈心有機農業發展基金會，帶《聯合報》團隊走訪新北市萬里沿岸的下寮海灘。</p>
         <p>沙灘旁有間廟宇叫「聖安宮」，負責人許修逸說，30年來當地沙灘寬度少掉一半，約50公尺。</p>
         <p>為守住海岸線，慈心自3年前，開始在下寮海灘進行海岸造林。</p>
@@ -102,7 +102,7 @@
       index="6"
       type="responsive"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <p>夏天砂溫最高可達70度，慈心靠祕密武器「水寶盆」蓄水、供應樹苗水分。</p>
         <p>慈心有機農業發展基金會種樹專案總監程禮怡表示，在水寶盆的樹苗不會超過40度，可避免樹苗進入休眠期。</p>
       </div>
@@ -111,7 +111,7 @@
       index="7"
       type="responsive"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <p>程禮怡說，下寮海灘海岸線退縮嚴重，若未以海岸造林作為第一道防線，每當遇到暴潮時，「海浪便會長驅直入，把陸地吃掉。」</p>
         <p>慈心在下寮海灘選用的林投、黃堇和草海桐，共通點是耐沙；其中林投跟黃堇還耐鹽，可承受海水的侵襲。</p>
         <p>如今，慈心種植的黃堇、草海桐已長得比人高，與一旁的林投交錯叢生，形成一道綿延快一公里的綠色堡壘。</p>
@@ -123,7 +123,7 @@
       index="8"
       type="small"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <p>2015年，慈心基金會在雲林縣台西鄉海岸造林前，當地佈滿光禿禿的沙地。</p>
       </div>
     </SlideCard>
@@ -131,7 +131,7 @@
       index="9"
       type="small"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <p>到了2017年，慈心已在當地種滿馬鞍藤、木麻黃等植物。</p>
       </div>
     </SlideCard>
@@ -139,11 +139,12 @@
       index="10"
       type="responsive"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <p>海岸造林就像在挑戰不可能任務。程禮怡表示，國家整體政策應該要有一套上位計劃，來保護這些防風林，避免當大型開發案等衝突引發時，土地遭到任意解編。不僅前功盡棄，國土保安的防線也失守了。</p>
         <p><br></p>
         <h4>慈心歷年海岸造林成果</h4>
         <CoastTrees />
+        <p><br></p>
       </div>
     </SlideCard>
     <SlideCard

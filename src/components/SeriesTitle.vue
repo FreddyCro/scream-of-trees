@@ -20,8 +20,10 @@ export default {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-bottom: 125px;
   transform: translateY(-100%);
+  @include pc {
+    transform: translateY(-125%);
+  }
   span {
     display: inline-block;
     line-height: 1;

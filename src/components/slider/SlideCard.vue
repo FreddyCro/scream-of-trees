@@ -162,9 +162,10 @@ export default {
   position: relative;
   z-index: 20;
   color: #f5f5f5;
+  min-height: 85vh;
+  width: 100%;
   padding-top: 120px;
   padding-bottom: 120px;
-  min-height: 85vh;
   &.slide-card__content--small {
     position: absolute;
     top: 50%;
@@ -182,10 +183,14 @@ export default {
     }
   }
   .article {
-    padding: 0 32px;
+    padding-right: 28px;
     background-color: transparent;
     @include pc {
       padding: 0;
+    }
+    .slide-card-article {
+      width: 100%;
+      overflow: hidden;
     }
     p {
       &:last-child {
@@ -195,13 +200,12 @@ export default {
   }
   .slide-card__gradient {
     position: absolute;
+    pointer-events: none;
     left: 0;
     top: -25%;
     width: 100%;
     height: 150%;
     background-image: linear-gradient(to top, rgba($color: #000000, $alpha: 0), rgba($color: #000000, $alpha: 0.68), rgba($color: #000000, $alpha: 0.78), rgba($color: #000000, $alpha: 0.68),  rgba($color: #000000, $alpha: 0));
-    
-
     &.slide-card__gradient--last {
       top: auto;
       bottom: 0;
@@ -217,7 +221,7 @@ export default {
     pointer-events: none;
     position: fixed;
     left: 50%;
-    top: calc(50% + 47.5vw);
+    top: calc(50% + 35vw);
     display: flex;
     justify-content: space-between;
     align-items: center;

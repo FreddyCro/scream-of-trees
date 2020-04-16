@@ -118,19 +118,18 @@ export default {
   top: 50%;
   left: 50%;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
+  object-fit: cover;
   transform: translateX(-50%) translateY(-50%);
-  @include pc {
-    @media screen and (max-width: 1366px) {
-      height: 100%;
-      width: auto;
-    }
-  }
 
   &.slide-bg-video--square {
     width: 80%;
+    height: auto;
+    object-fit: contain;
+    transform: translateX(-50%) translateY(-72.5%);
     @include pc {
       width: 100%;
+      transform: translateX(-50%) translateY(-50%);
       @media screen and (max-width: 1366px) {
         height: 100%;
         width: auto;

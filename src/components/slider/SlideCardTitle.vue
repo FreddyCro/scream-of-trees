@@ -64,9 +64,14 @@ export default {
 
 .slide-card-title {
   position: absolute;
+  overflow: hidden;
   left: 20%;
   top: 0;
+  padding: 8px;
   transform: translateY(-100%);
+  @include smob {
+    transform: translateY(-90%);
+  }
   @include pc {
     left: 0%;
     transform: translateY(-105%);

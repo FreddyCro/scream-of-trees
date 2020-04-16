@@ -224,9 +224,10 @@ export default {
   .coast-trees__source {
     position: absolute;
     left: 0;
-    bottom: -50px;
+    bottom: -25px;
     p {
       color: #7b7a7a;
+      margin-bottom: 0;
     }
   }
 }

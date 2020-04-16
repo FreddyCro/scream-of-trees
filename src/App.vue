@@ -26,38 +26,48 @@
       index="1"
       type="small"
     >
-      <p class="p--first" slot="article">為什麼森林的樹高大挺拔<br>我們種的樹卻歪七扭八？</p>
+      <div class="slide-card-article" slot="article">
+        <p class="p--first">為什麼森林的樹高大挺拔<br>我們種的樹卻歪七扭八？</p>
+      </div>
     </SlideCard>
     <SlideCard
       index="2"
       type="small"
     >
-      <p class="p--first" slot="article">我們拚命種樹<br>卻種出許多處境悲慘的樹</p>
+      <div class="slide-card-article" slot="article">
+        <p class="p--first">我們拚命種樹<br>卻種出許多處境悲慘的樹</p>
+      </div>
     </SlideCard>
     <SlideCard
       index="3"
       type="small"
     >
-      <p class="p--first" slot="article">斷頭樹、殘障樹、尿布樹...</p>
+      <div class="slide-card-article" slot="article">
+        <p class="p--first">斷頭樹、殘障樹、尿布樹...</p>
+      </div>
     </SlideCard>
     <SlideCard
       index="4"
       type="small"
     >
-      <p class="p--first" slot="article">在這些樹身上<br>看不到樹該有的樣貌</p>
+      <div class="slide-card-article" slot="article">
+        <p class="p--first">在這些樹身上<br>看不到樹該有的樣貌</p>
+      </div>
     </SlideCard>
     <SlideCard
       index="5"
       type="small"
     >
-      <p class="p--first" slot="article">卻看到他們用殘破的身軀<br>訴說一個個令人痛心的遭遇</p>
+      <div class="slide-card-article" slot="article">
+        <p class="p--first">卻看到他們用殘破的身軀<br>訴說一個個令人痛心的遭遇</p>
+      </div>
     </SlideCard>
     <SlideCard
       index="6"
       type="responsive"
       :isLast=true
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <SeriesTitle />
         <p>2015年，新北市興南國小不當移植6株木麻黃，導致老樹枯死。<br>2018年，台南市五妃廟前一顆鳳凰木感染褐根病倒塌，砸中一名老翁。<br>2019年，彰化縣員林百果山廣天宮廟埕一株老榕樹染病傾倒，彰化縣又少了一株百年老樹。<br>2020年，高雄市中崙國中校內近百棵樹遭砍，只因校長認為「落葉太多掃不完」。</p>
         <p>一筆筆資料，記錄了周遭的樹常見的命運—遭到斷頭式砍伐、染病傾倒，或因不當移植、欠缺養護而枯死。</p>

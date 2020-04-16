@@ -198,11 +198,11 @@ export default {
   position: relative;
   width: 100%;
   text-align: center;
+  padding-bottom: 80px;
 }
 .coast-map__map {
   position: relative;
   width: 100%;
-  circle.city-button {}
   .city-button--active {
     opacity: 0.8;
     animation: click-me 3s ease-out infinite;
@@ -223,7 +223,8 @@ export default {
   pointer-events: none;
   position: absolute;
   left: 0;
-  bottom: 0;
+  top: 65%;
+  // bottom: 0;
   width: 100%;
   padding: 12px 16px;
   opacity: 0.8;
@@ -237,10 +238,7 @@ export default {
 .coast-map__source {
   position: absolute;
   left: 0;
-  bottom: -100px;
-  @include pc {
-    bottom: -50px;
-  }
+  bottom: 0;
   p {
     color: #7b7a7a;
   }

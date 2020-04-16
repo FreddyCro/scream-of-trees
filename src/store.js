@@ -34,7 +34,7 @@ export default new Vuex.Store({
         imagePath: null,
         hasTablet: false,
         videoController: false,
-        squareType: true,
+        squareType: false,
       },
       {
         type: 'i',

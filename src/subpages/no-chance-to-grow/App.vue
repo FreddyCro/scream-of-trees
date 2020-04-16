@@ -4,7 +4,7 @@
       <a
         v-for="(item, index) in articleList"
         :key="index"
-        :href="mainPage + item.url"
+        :href="item.outlink ? item.url : mainPage + item.url"
         target="_blank"
         rel="noopener"
         aria-label="share-fb"
@@ -25,7 +25,7 @@
       index="1"
       type="responsive"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <SlideCardTitle
           :isMain="true"
           first="來不及"
@@ -41,7 +41,7 @@
       index="2"
       type="responsive"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <SlideCardTitle
           first="不再風光的"
           second="大官樹"
@@ -65,7 +65,7 @@
       index="3"
       type="responsive"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <SlideCardTitle
           first="被棄養的"
           second="庶民樹"
@@ -83,7 +83,7 @@
       index="4"
       type="responsive"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <SlideCardTitle
           first="我們的樹"
           second="悲慘的活著"
@@ -100,7 +100,7 @@
       index="5"
       type="responsive"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <SlideCardTitle
           first="斷頭樹"
         />
@@ -117,7 +117,7 @@
       index="6"
       type="responsive"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <SlideCardTitle
           first="殘障樹"
         />
@@ -130,7 +130,7 @@
       index="7"
       type="responsive"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <SlideCardTitle
           first="尿布樹"
         />
@@ -150,7 +150,7 @@
       index="8"
       type="responsive"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <SlideCardTitle
           first="窒息樹"
         />
@@ -167,14 +167,14 @@
       index="9"
       type="responsive"
     >
-      <div slot="article">
+      <div class="slide-card-article" slot="article">
         <SlideCardTitle
           first="守護樹木"
           second="你可以這麼做"
         />
         <p>若看到樹木遭受不當對待，可以怎麼做呢？《聯合報》整理了樹木通報、救援專線及關心樹木的民間組織資訊，邀請你一同加入守護樹木行列：</p>
         <p><span class="green-text">公家單位</span><br>若發現危木，或有路樹相關問題，可至各縣市1999市民服務平台，選擇「路樹」項目，通報相關案例。</p>
-        <p><span class="green-text">民間單位</span><br><a href="http://oldtree119.org/" target="_blank" class="green-underline">台灣老樹救援協會：</a>協助台灣各地老樹進行救援、養護等保育工作，若遇到老樹遭受不當對待，可至協會網頁填寫<a href="http://oldtree119.org/reciprocation.html" target="_blank" class="green-underline">公益老樹救援相關表單</a></p>
+        <p><span class="green-text">民間單位</span><br><a href="http://oldtree119.org/" target="_blank" class="green-underline">台灣老樹救援協會：</a>協助台灣各地老樹進行救援、養護等保育工作，若遇到老樹遭受不當對待，可至協會網頁填寫<a href="http://oldtree119.org/reciprocation.html" target="_blank" class="green-underline">公益老樹救援相關表單。</a></p>
         <p><a href="http://www.twas.org.tw/index.php" target="_blank" class="green-underline">台灣都市林健康美化協會：</a>致力強化都市內公有及私有樹木之管理，以發揮都市林的環境效益。</p>
         <p><a href="https://www.dodolovetree.org.tw/Client/P01.aspx?MenuItem=I1511618202451000000" target="_blank" class="green-underline">台灣護樹協會：</a>致力守護台灣各地的樹木，審視公部門對待樹木的態度。</p>
         <p><a href="https://www.facebook.com/twlovetree/" target="_blank" class="green-underline">高雄。愛樹人：</a>關注高雄樹木的護樹團體。</p>
