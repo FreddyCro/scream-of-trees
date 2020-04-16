@@ -5,7 +5,7 @@
         'link__body': true,
         'link__body--active': isActive,
       }"
-      :href="shareUrl"
+      :href="shareUrl + '/'"
       target="_blank"
       rel="noopener"
       :ariaLabel="data.title"

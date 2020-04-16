@@ -4,7 +4,7 @@
       <a
         v-for="(item, index) in articleList"
         :key="index"
-        :href="item.outlink ? item.url : mainPage + item.url"
+        :href="item.outlink ? item.url : mainPage + item.url + '/'"
         target="_blank"
         rel="noopener"
         aria-label="share-fb"
@@ -79,6 +79,7 @@
     <SlideCard
       index="4"
       type="responsive"
+      :canTouch="true"
     >
       <div class="slide-card-article" slot="article">
         <p>據中央地質調查所調查，1978年到2009年間，全台多處海岸退縮100到650公尺。</p>
@@ -151,6 +152,7 @@
       index="11"
       type="responsive"
       :isLast=true
+      :canTouch="true"
     >
       <div slot="full">
         <SeriesTitle />

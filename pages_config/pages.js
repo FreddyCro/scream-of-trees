@@ -9,9 +9,9 @@ const howManyTreesContent = contentGenerator('./seo_content/how-many-trees.html'
 const growUpHealthily = contentGenerator('./seo_content/grow-up-healthily.html');
 
 /* 正式路徑 */
-// const pathRoot = process.env.NODE_ENV === 'production' ? 'https://udn.com/newmedia/2020/scream-of-trees/' : './';
+const pathRoot = process.env.NODE_ENV === 'production' ? 'https://udn.com/newmedia/2020/sceam-of-trees/' : 'http://localhost:8080/';
 /* 測試路徑 */
-const pathRoot = process.env.NODE_ENV === 'production' ? 'https://nmdap.udn.com.tw/test/scream-of-trees/' : 'http://localhost:8080/';
+// const pathRoot = process.env.NODE_ENV === 'production' ? 'https://nmdap.udn.com.tw/test/scream-of-trees/' : 'http://localhost:8080/';
 
 const noChanceToGrow_path = 'no-chance-to-grow/';
 const howManyTrees_path = 'how-many-trees/';

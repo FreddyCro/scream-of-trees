@@ -16,15 +16,40 @@
       <source :src="videoSrc" type="video/mp4" />
       <p>Your browser doesn't support HTML5 video.</p>
     </video>
+    <div
+        v-if="$store.state.useVideoControl"
+        :class="{
+          'slide-bg-video__controller': true,
+          'slide-bg-video__controller--active': controllerActive,
+        }"
+      >
+        <div class="slide-bg-video__controller__button" @click="handleMutedClick">
+          <VideoMuted :isMuted="$store.state.videoStatus.isMuted" />
+        </div>
+        <div class="slide-bg-video__controller__button" @click="handlePlayClick">
+          <VideoDuration
+            :currentTime="$store.state.videoStatus.currentTime"
+            :totalTime="$store.state.videoStatus.totalTime"
+            :isPlay="$store.state.videoStatus.isPlay"
+          />
+        </div>
+      </div>
   </div>
 </template>
 
 <script>
 import { sendGaMethods } from "@/mixins/masterBuilder.js";
 
+import VideoDuration from '@/components/VideoDuration';
+import VideoMuted from '@/components/VideoMuted';
+
 export default {
   name: "SlideBgVideo",
   mixins: [sendGaMethods],
+  components: {
+    VideoDuration,
+    VideoMuted
+  },
   props: {
     posterSrc: {
       type: String,
@@ -65,6 +90,9 @@ export default {
     videoActive() {
       return this.trigger === this.$store.state.currentSlide;
     },
+    controllerActive() {
+      return this.$store.state.videoStatus.controllerActive && this.$store.state.currentSlide === +this.trigger;
+    }
   },
   watch: {
     videoActive: {
@@ -77,14 +105,14 @@ export default {
     handleUpdateVideoTime(video) {
       video.ontimeupdate = (e) => {
         if (!this.$store.state.videoStatus.controllerActive) return ;
-        this.handleProgressGA(e.target.currentTime, e.target.duration);
+        this.handleProgressGA(e.target.currentTime);
         this.$store.dispatch('updateVideoTime', {
           currentTime: e.target.currentTime,
           totalTime: e.target.duration
         });
       }
     },
-    handleProgressGA(currentTime, duration) {
+    handleProgressGA(currentTime) {
       if (currentTime < 1) this.gaStageTime = this.gaStageGap;
       if (currentTime > this.gaStageTime) {
         this.sendGA({
@@ -95,6 +123,22 @@ export default {
 
         this.gaStageTime += this.gaStageGap ;
       }
+    },
+    handleMutedClick() {
+      this.sendGA({
+        category: 'video',
+        action: 'click',
+        label: `sound slide-${this.index}`
+      });
+      this.$store.dispatch('updateVideoMute');
+    },
+    handlePlayClick() {
+      this.sendGA({
+        category: 'video',
+        action: 'click',
+        label: `pause slide-${this.index}`
+      });
+      this.$store.dispatch('updateVideoPlay');
     },
   },
   mounted() {
@@ -109,6 +153,7 @@ export default {
 @import "~/style/_mixins.scss";
 .slide-bg-video-container {
   position: relative;
+  pointer-events: none;
   width: 100%;
   height: 100%;
   background-color: black;
@@ -135,6 +180,31 @@ export default {
         width: auto;
       }
     }
+  }
+}
+.slide-bg-video__controller {
+  position: absolute;
+  pointer-events: none;
+  left: 50%;
+  top: calc(50% + 35vw);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90px;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity .333s ease-in-out;
+  @include pc {
+    position: fixed;
+    left: initial;
+    right: 0;
+    margin-right: 10px;
+    top: 50px;
+    transform: translate(0, 0);
+  }
+  &.slide-bg-video__controller--active {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 </style>

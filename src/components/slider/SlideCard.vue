@@ -5,6 +5,7 @@
       'slide-card': true,
       'slide-card--small': type === 'small',
       'slide-card--last': isLast,
+      'slide-card--can-touch': canTouch,
     }"
   >
     <div
@@ -26,42 +27,16 @@
         <slot name="footer"></slot>
       </div>
     </div>
-    <div v-else class="slide-card__content-no-text">
-      <div
-        v-if="$store.state.useVideoControl"
-        :class="{
-          'slide-bg-video__controller': true,
-          'slide-bg-video__controller--active': controllerActive,
-        }"
-      >
-        <div class="slide-bg-video__controller__button" @click="handleMutedClick">
-          <VideoMuted :isMuted="$store.state.videoStatus.isMuted" />
-        </div>
-        <div class="slide-bg-video__controller__button" @click="handlePlayClick">
-          <VideoDuration
-            :currentTime="$store.state.videoStatus.currentTime"
-            :totalTime="$store.state.videoStatus.totalTime"
-            :isPlay="$store.state.videoStatus.isPlay"
-          />
-        </div>
-      </div>
-    </div>
+    <div v-else class="slide-card__content-no-text" />
   </div>
 </template>
 
 <script>
 import { sendGaMethods } from "@/mixins/masterBuilder.js";
 
-import VideoDuration from '@/components/VideoDuration';
-import VideoMuted from '@/components/VideoMuted';
-
 export default {
   name: 'SlideCard',
   mixins: [sendGaMethods],
-  components: {
-    VideoDuration,
-    VideoMuted
-  },
   props: {
     /**
      * type:
@@ -84,16 +59,15 @@ export default {
       type: Boolean,
       default: false,
     },
+    canTouch: {
+      type: Boolean,
+      default: false,
+    }
   },
   data() {
     return {
       ticking: false
     };
-  },
-  computed: {
-    controllerActive() {
-      return this.$store.state.videoStatus.controllerActive && this.$store.state.currentSlide === +this.index;
-    }
   },
   methods: {
     handleSlideEvent() {
@@ -116,22 +90,6 @@ export default {
       }
       this.ticking = true;
     },
-    handleMutedClick() {
-      this.sendGA({
-        category: 'video',
-        action: 'click',
-        label: `sound slide-${this.index}`
-      });
-      this.$store.dispatch('updateVideoMute');
-    },
-    handlePlayClick() {
-      this.sendGA({
-        category: 'video',
-        action: 'click',
-        label: `pause slide-${this.index}`
-      });
-      this.$store.dispatch('updateVideoPlay');
-    },
   },
   mounted() {
     document.addEventListener('scroll', this.handleScroll, true);
@@ -146,6 +104,7 @@ export default {
 @import "~/style/_mixins.scss";
 .slide-card {
   position: relative;
+  pointer-events: none;
   width: 100%;
   padding-top: 120vh;
   // border: solid 5px red;
@@ -156,6 +115,9 @@ export default {
     height: 200vh;
     padding: 0;
     background-color: transparent;
+  }
+  &.slide-card--can-touch {
+    pointer-events: auto;
   }
 }
 .slide-card__content {
@@ -200,7 +162,6 @@ export default {
   }
   .slide-card__gradient {
     position: absolute;
-    pointer-events: none;
     left: 0;
     top: -25%;
     width: 100%;
@@ -216,30 +177,5 @@ export default {
 .slide-card__content-no-text {
   position: relative;
   height: 50vh;
-  z-index: 10;
-  .slide-bg-video__controller {
-    pointer-events: none;
-    position: fixed;
-    left: 50%;
-    top: calc(50% + 35vw);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90px;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity .333s ease-in-out;
-    @include pc {
-      left: initial;
-      right: 0;
-      margin-right: 10px;
-      top: 50px;
-      transform: translate(0, 0);
-    }
-    &.slide-bg-video__controller--active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-  }
 }
 </style>

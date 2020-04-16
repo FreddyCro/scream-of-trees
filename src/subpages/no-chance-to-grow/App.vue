@@ -4,7 +4,7 @@
       <a
         v-for="(item, index) in articleList"
         :key="index"
-        :href="item.outlink ? item.url : mainPage + item.url"
+        :href="item.outlink ? item.url : mainPage + item.url + '/'"
         target="_blank"
         rel="noopener"
         aria-label="share-fb"
@@ -184,6 +184,7 @@
       index="10"
       type="responsive"
       :isLast=true
+      :canTouch="true"
     >
       <div slot="full">
         <SeriesTitle />

@@ -104,6 +104,7 @@ export default {
 @import "~/style/_mixins.scss";
 .slide-bg {
   position: fixed;
+  pointer-events: none;
   overflow: hidden;
   width: 100%;
   height: 100vh;
