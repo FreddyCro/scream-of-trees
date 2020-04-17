@@ -1,12 +1,12 @@
 const contentGenerator = require('./contentGenerator.js')
 
-/* seo內容文件 */
-const monitorCode = contentGenerator('./seo_content/monitor.html');
-const authorContent = contentGenerator('./seo_content/author.html');
-const screamOfTreesContent = contentGenerator('./seo_content/scream-of-trees.html');
-const noChanceToGrowContent = contentGenerator('./seo_content/no-chance-to-grow.html');
-const howManyTreesContent = contentGenerator('./seo_content/how-many-trees.html');
-const growUpHealthily = contentGenerator('./seo_content/grow-up-healthily.html');
+/* 內容文件 */
+const monitorCode = contentGenerator('./contents/monitor.html');
+const authorContent = contentGenerator('./contents/author.html');
+const screamOfTreesContent = contentGenerator('./contents/scream-of-trees.html');
+const noChanceToGrowContent = contentGenerator('./contents/no-chance-to-grow.html');
+const howManyTreesContent = contentGenerator('./contents/how-many-trees.html');
+const growUpHealthily = contentGenerator('./contents/grow-up-healthily.html');
 
 /* 正式路徑 */
 const pathRoot = process.env.NODE_ENV === 'production' ? 'https://udn.com/newmedia/2020/scream-of-trees/' : 'http://localhost:8080/';
