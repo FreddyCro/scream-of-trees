@@ -166,6 +166,7 @@
     <SlideCard
       index="9"
       type="responsive"
+      :canTouch="true"
     >
       <div class="slide-card-article" slot="article">
         <SlideCardTitle
