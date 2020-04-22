@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <PageIndicator />
     <HeaderTypeA type="light">
       <a
         v-for="(item, index) in articleList"
@@ -279,6 +280,7 @@ import FooterQuestionnaire from '@/components/footer/FooterQuestionnaire.vue';
 import FooterShare from '@/components/footer/FooterShare.vue';
 import HeaderTypeA from '@/components/header/HeaderTypeA.vue';
 import PageFooter from '@/components/footer/PageFooter.vue';
+import PageIndicator from '@/components/layout/PageIndicator.vue';
 import RelatedArticles from '@/components/related/RelatedArticles.vue';
 import SeriesTitle from '@/components/SeriesTitle.vue';
 import SideProgress from '@/components/SideProgress.vue';
@@ -299,6 +301,7 @@ export default {
     FooterShare,
     HeaderTypeA,
     PageFooter,
+    PageIndicator,
     RelatedArticles,
     SeriesTitle,
     SideProgress,
